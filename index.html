@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#RishSavi — You're Invited</title>
+<meta property="og:title" content="Savi weds Rishabh — 24 & 25 Nov 2026, Vrindavan">
+<meta property="og:description" content="With the blessings of our families, we invite you to celebrate with us. #RishSavi">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Mulish:wght@400;600;700&family=Tiro+Devanagari+Hindi&family=Great+Vibes&family=Cormorant+Garamond:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blush:#F9E4E8;
+    --blush-deep:#F3CBD4;
+    --rose:#DE93A7;
+    --rosegold:#C98A7E;
+    --maroon:#7A2E3C;
+    --maroon-deep:#5C1F2C;
+    --gold:#C9A24B;
+    --gold-bright:#EFD9A0;
+    --cream:#FBF7EF;
+    --ink:#4A3B33;
+    --sage:#8FAE85;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Mulish',sans-serif;
+    background:#EFE6D8;
+    color:var(--ink);
+    line-height:1.65;
+    overflow-x:hidden;
+  }
+  body.locked{overflow:hidden}
+  .page{
+    max-width:480px;margin:0 auto;position:relative;
+    background:var(--cream);
+    box-shadow:0 0 90px rgba(122,46,60,.25);
+  }
+
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:70;
+    background:linear-gradient(90deg,var(--rose),var(--gold-bright),var(--rose));}
+
+  #fireworks{position:fixed;inset:0;z-index:63;pointer-events:none}
+
+  .shimmer{
+    background:linear-gradient(110deg,var(--gold) 25%,#FFF3D6 50%,var(--gold) 75%);
+    background-size:220% auto;
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    animation:shine 3.4s linear infinite;
+  }
+  @keyframes shine{to{background-position:-220% center}}
+
+  /* ================= COVER — romantic dawn, opening doors ================= */
+  #cover{position:fixed;inset:0;z-index:60}
+  .door{
+    position:absolute;top:0;bottom:0;width:50.5%;
+    background:
+      radial-gradient(ellipse 150% 60% at 100% 110%, #F6D9C9 0%, transparent 55%),
+      linear-gradient(180deg,#F4C8D3 0%,#F9E0DC 45%,#FBEBDD 100%);
+    transition:transform 1.9s cubic-bezier(.72,0,.2,1);
+    overflow:hidden;
+  }
+  .door.right{right:0;background:
+      radial-gradient(ellipse 150% 60% at 0% 110%, #F6D9C9 0%, transparent 55%),
+      linear-gradient(180deg,#F4C8D3 0%,#F9E0DC 45%,#FBEBDD 100%);}
+  .door.left{left:0;border-right:1px solid rgba(201,162,75,.5)}
+  .door.right{border-left:1px solid rgba(201,162,75,.5)}
+  .door::before{
+    content:"";position:absolute;inset:0;opacity:.55;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23C9A24B' stroke-width='.6' opacity='.4'%3E%3Cpath d='M36 6 C46 16 46 28 36 38 C26 28 26 16 36 6Z'/%3E%3Ccircle cx='36' cy='22' r='3'/%3E%3Ccircle cx='6' cy='54' r='2'/%3E%3Ccircle cx='66' cy='54' r='2'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  #cover.open .door.left{transform:translateX(-101%)}
+  #cover.open .door.right{transform:translateX(101%)}
+  #cover.open .cover-content{opacity:0;transform:scale(1.1)}
+  #cover.done{visibility:hidden}
+
+  .cover-content{
+    position:absolute;inset:0;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;
+    color:var(--maroon);padding:2rem;z-index:2;
+    transition:opacity .9s ease,transform .9s ease;
+  }
+  .medallion{
+    position:relative;width:92px;height:92px;margin-bottom:1rem;
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;animation:riseIn 1s ease .15s forwards;
+  }
+  .medallion .ring{position:absolute;inset:0;border-radius:50%;
+    border:1.5px solid var(--gold);box-shadow:0 0 22px rgba(201,162,75,.4), inset 0 0 16px rgba(201,162,75,.25)}
+  .medallion .ring2{position:absolute;inset:7px;border-radius:50%;border:1px dashed rgba(201,162,75,.85);animation:spin 22s linear infinite}
+  .medallion .mono{font-family:'Great Vibes',cursive;font-size:2rem;color:var(--maroon)}
+  .medallion .heart{position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);color:var(--rose);font-size:.8rem;background:var(--blush);padding:0 .3rem;border-radius:6px}
+
+  .cover-om{font-family:'Tiro Devanagari Hindi',serif;font-size:1.02rem;letter-spacing:.1em;margin-bottom:1rem;color:var(--maroon);opacity:0;animation:riseIn 1s ease .35s forwards}
+  .cover-invite{font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:#A85868;margin-bottom:.6rem;opacity:0;animation:riseIn 1s ease .6s forwards}
+  .cover-names{
+    font-family:'Great Vibes',cursive;font-size:clamp(3.2rem,15vw,4.9rem);line-height:1.13;
+    background:linear-gradient(110deg,#6E2434 30%,#C4707F 50%,#6E2434 70%);
+    background-size:220% auto;
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    opacity:0;animation:riseIn 1.2s ease .85s forwards, shine 3.6s linear 2.2s infinite;
+    filter:drop-shadow(0 3px 10px rgba(110,36,52,.28));
+  }
+  .cover-amp{font-size:.5em}
+  .cover-date{margin-top:1rem;font-size:.82rem;letter-spacing:.34em;text-transform:uppercase;color:var(--maroon);opacity:0;animation:riseIn 1s ease 1.3s forwards}
+  .cover-rule{width:150px;height:14px;margin-top:1.1rem;opacity:0;animation:riseIn 1s ease 1.5s forwards}
+  .open-btn{
+    margin-top:2rem;padding:1rem 2.7rem;border-radius:999px;position:relative;overflow:hidden;
+    background:linear-gradient(120deg,#8A3A49,var(--maroon) 45%,#8A3A49);
+    color:#FBEDD6;border:none;
+    font-family:'Mulish',sans-serif;font-weight:700;font-size:.97rem;letter-spacing:.1em;
+    cursor:pointer;opacity:0;animation:riseIn 1s ease 1.8s forwards, breathe 2.6s ease-in-out 2.9s infinite;
+    box-shadow:0 10px 30px rgba(122,46,60,.35);
+  }
+  .open-btn::after{
+    content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);
+    animation:sweep 2.8s ease-in-out 3s infinite;
+  }
+  @keyframes riseIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  @keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+  @keyframes swing{from{transform:rotate(-6deg)}to{transform:rotate(6deg)}}
+
+  .cloud{position:absolute;border-radius:50%;filter:blur(18px);opacity:.75;animation:drift 26s ease-in-out infinite alternate;pointer-events:none}
+  @keyframes drift{from{transform:translateX(-26px)}to{transform:translateX(26px)}}
+  .balloon{position:absolute;animation:hover 7s ease-in-out infinite alternate;pointer-events:none}
+  @keyframes hover{from{transform:translateY(0)}to{transform:translateY(-22px)}}
+  .mandala{position:absolute;width:min(96vw,470px);height:min(96vw,470px);animation:spin 60s linear infinite;opacity:.4}
+  .mandala.inner{width:min(70vw,340px);height:min(70vw,340px);animation-direction:reverse;animation-duration:44s;opacity:.3}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes sweep{0%{left:-80%}55%,100%{left:130%}}
+  .spark{position:absolute;color:#E8B04B;animation:twinkle 2.8s ease-in-out infinite;z-index:1;font-size:10px}
+  .spark.pink{color:var(--rose)}
+  @keyframes twinkle{0%,100%{opacity:.12;transform:scale(.65)}50%{opacity:1;transform:scale(1.3)}}
+
+  /* petals / confetti / dust */
+  .confetti{position:fixed;top:-16px;z-index:65;pointer-events:none;animation:cfall linear forwards}
+  @keyframes cfall{to{transform:translateY(110vh) rotate(720deg);opacity:.2}}
+  .petal{position:fixed;top:-30px;z-index:55;pointer-events:none;animation:fall linear infinite}
+  .petal svg{display:block;animation:sway 3.4s ease-in-out infinite alternate}
+  @keyframes fall{0%{transform:translateY(-5vh) rotate(0)}100%{transform:translateY(108vh) rotate(320deg)}}
+  @keyframes sway{from{transform:translateX(-14px) rotate(-18deg)}to{transform:translateX(14px) rotate(18deg)}}
+  .dust{
+    position:fixed;bottom:-12px;z-index:54;pointer-events:none;border-radius:50%;
+    background:radial-gradient(circle,#FBEDCB 0%,rgba(239,217,160,.5) 45%,transparent 70%);
+    animation:floatup linear infinite;
+  }
+  @keyframes floatup{0%{transform:translateY(0);opacity:0}12%{opacity:.9}100%{transform:translateY(-108vh) translateX(24px);opacity:0}}
+
+  /* ================= SCRATCH CARD ================= */
+  .scratch-wrap{
+    position:relative;width:min(330px,85vw);aspect-ratio:8/5;margin:0 auto;
+    border-radius:18px;overflow:hidden;border:2px solid var(--gold);
+    box-shadow:0 16px 36px rgba(122,46,60,.16);background:#FFFEFB;
+  }
+  .scratch-under{
+    position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:radial-gradient(circle at 50% 18%, #FFF6E6, #FBEDD6);
+  }
+  .su-hindi{font-family:'Tiro Devanagari Hindi',serif;color:var(--rosegold);font-size:.92rem}
+  .su-date{font-family:'Marcellus',serif;font-size:2.7rem;color:var(--maroon);line-height:1.1}
+  .su-date span{color:var(--gold);font-size:1.5rem}
+  .su-month{font-family:'Marcellus',serif;letter-spacing:.26em;text-transform:uppercase;font-size:.85rem;color:#6B5748}
+  .su-city{font-size:.68rem;letter-spacing:.32em;text-transform:uppercase;color:var(--rosegold);margin-top:.25rem}
+  #scratch{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:grab}
+  .scratch-hint{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#B08A8A;margin-top:.9rem}
+
+  #countdown-sec{display:none}
+  #countdown-sec.shown{display:block;animation:riseIn .9s ease both}
+
+  /* ================= TORAN ================= */
+  .toran{display:block;width:100%}
+  .toran .strand{transform-origin:top center;animation:swing 4.5s ease-in-out infinite alternate}
+  .toran .strand:nth-child(2n){animation-delay:.7s}
+  .toran .strand:nth-child(3n){animation-delay:1.3s}
+
+  /* ================= SECTIONS ================= */
+  section{padding:3rem 1.6rem;text-align:center;position:relative}
+  .eyebrow{font-size:.68rem;letter-spacing:.32em;text-transform:uppercase;color:var(--rosegold);font-weight:700;margin-bottom:.6rem}
+  .hindi{font-family:'Tiro Devanagari Hindi',serif;color:var(--maroon)}
+  h2{font-family:'Marcellus',serif;font-weight:400;font-size:1.8rem;color:var(--maroon-deep);margin-bottom:1rem}
+
+  .reveal{opacity:0;transform:translateY(36px);transition:opacity .95s cubic-bezier(.2,.7,.3,1),transform .95s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  .d1{transition-delay:.1s}.d2{transition-delay:.25s}.d3{transition-delay:.4s}.d4{transition-delay:.55s}
+
+  .lotus{width:92px;height:54px;margin:1.2rem auto .4rem;display:block}
+  .lotus path{transform-origin:46px 50px;transform:scale(.15);opacity:0;transition:transform 1s cubic-bezier(.2,.7,.3,1.2),opacity .8s}
+  .in .lotus path{transform:scale(1);opacity:1}
+  .in .lotus path:nth-child(2){transition-delay:.12s}
+  .in .lotus path:nth-child(3){transition-delay:.24s}
+  .in .lotus path:nth-child(4){transition-delay:.36s}
+  .in .lotus path:nth-child(5){transition-delay:.48s}
+
+  .diya{width:64px;margin:0 auto 1rem}
+  .flame{transform-origin:50% 90%;animation:flicker 1.1s ease-in-out infinite alternate}
+  @keyframes flicker{0%{transform:scaleY(1)}40%{transform:scaleY(1.12) scaleX(.94) rotate(1.5deg)}100%{transform:scaleY(.94) scaleX(1.05) rotate(-1.5deg)}}
+  .glow{animation:glowpulse 1.6s ease-in-out infinite alternate}
+  @keyframes glowpulse{from{opacity:.3}to{opacity:.8}}
+
+  /* couple arches */
+  .arch-wrap{position:relative;width:200px;margin:1.4rem auto 1rem}
+  .aura{
+    position:absolute;inset:-16px;border-radius:100px 100px 26px 26px;filter:blur(14px);opacity:.5;z-index:0;
+    background:conic-gradient(from 0deg,var(--gold),#F6E3B8,var(--rose),var(--gold),#F6E3B8,var(--gold));
+    animation:spin 10s linear infinite;
+  }
+  .arch{
+    width:184px;height:236px;margin:0 auto;position:relative;z-index:1;
+    background:linear-gradient(160deg,#fff,#FDF6EC);padding:8px;
+    border:2px solid var(--gold);
+    border-radius:92px 92px 16px 16px;
+    box-shadow:0 14px 34px rgba(122,46,60,.18);
+  }
+  .arch::before{
+    content:"";position:absolute;top:-16px;left:50%;transform:translateX(-50%);
+    width:26px;height:26px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Cpath d='M13 1 L16 9 L24 10 L17.5 15 L20 24 L13 19 L6 24 L8.5 15 L2 10 L10 9 Z' fill='%23DE93A7'/%3E%3C/svg%3E");
+  }
+  .arch::after{
+    content:"";position:absolute;inset:3px;border:1px dashed rgba(222,147,167,.6);
+    border-radius:88px 88px 13px 13px;pointer-events:none;
+  }
+  .arch-inner{
+    width:100%;height:100%;border-radius:84px 84px 10px 10px;overflow:hidden;
+    background:linear-gradient(160deg,#F6ECDA,#EBD9BC);
+    display:flex;align-items:center;justify-content:center;
+    color:#A8946F;font-size:.72rem;letter-spacing:.14em;
+  }
+  .arch-inner img{width:100%;height:100%;object-fit:cover}
+  .script-name{font-family:'Great Vibes',cursive;font-size:3.2rem;line-height:1.2;color:var(--maroon)}
+  .name-underline{width:130px;height:16px;margin:-2px auto .3rem;display:block}
+  .name-underline path{stroke:var(--rose);stroke-width:1.6;fill:none;stroke-dasharray:240;stroke-dashoffset:240}
+  .name-underline circle{fill:var(--gold);opacity:0;transition:opacity .5s 1.4s}
+  .in .name-underline path{animation:draw 1.4s ease .5s forwards}
+  .in .name-underline circle{opacity:1}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  .family{font-size:.92rem;color:#7A6656}
+  .family b{color:var(--maroon-deep)}
+  .weds-ring{margin:1.5rem auto .2rem;width:58px}
+  .weds-ring circle{stroke:var(--gold);stroke-width:2.2;fill:none;stroke-dasharray:120;stroke-dashoffset:120}
+  .in .weds-ring circle:first-child{animation:draw 1.2s ease .3s forwards}
+  .in .weds-ring circle:last-child{animation:draw 1.2s ease .7s forwards}
+  .weds{font-family:'Marcellus',serif;letter-spacing:.45em;text-transform:uppercase;font-size:.8rem;color:var(--rosegold)}
+
+  /* countdown */
+  .count-wrap{display:flex;justify-content:center;gap:.8rem;margin-top:1.4rem}
+  .tile{
+    background:linear-gradient(180deg,#FFFDF7,#F7EBD6);
+    border:1px solid rgba(201,162,75,.6);
+    border-radius:14px;min-width:74px;padding:.9rem .5rem .65rem;position:relative;
+    box-shadow:0 10px 24px rgba(122,46,60,.12), inset 0 1px 0 #FFF;
+  }
+  .tile::after{content:"";position:absolute;left:10px;right:10px;top:50%;height:1px;background:rgba(201,162,75,.3)}
+  .count-num{font-family:'Marcellus',serif;font-size:2.1rem;color:var(--maroon);line-height:1}
+  .count-label{font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--rosegold);margin-top:.4rem}
+
+  /* ============ EVENT STORY CARDS (screenshot style) ============ */
+  .story{
+    max-width:392px;margin:0 auto 2.6rem;border-radius:22px;overflow:hidden;
+    background:#FFFEFB;
+    box-shadow:0 22px 50px rgba(122,46,60,.16), 0 0 0 1px rgba(201,162,75,.25);
+    text-align:center;
+  }
+  .story-hero{position:relative;display:block}
+  .story-hero svg{display:block;width:100%;height:auto}
+  .story-title{
+    position:absolute;top:26px;left:0;right:0;text-align:center;
+    font-family:'Great Vibes',cursive;font-size:2.6rem;color:#FFF9EA;
+    text-shadow:0 2px 14px rgba(122,46,60,.45), 0 0 30px rgba(201,162,75,.5);
+  }
+  .story-when{
+    position:absolute;top:88px;left:0;right:0;text-align:center;color:#FFFDF5;
+    font-family:'Cormorant Garamond',serif;font-size:1.02rem;letter-spacing:.14em;
+    text-shadow:0 1px 8px rgba(122,46,60,.5);
+  }
+  .story-when b{font-weight:400}
+  .story-body{padding:1.9rem 1.6rem 2rem}
+  .story-quote{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.12rem;color:#5B4A40;
+    max-width:290px;margin:0 auto 1.5rem;
+  }
+  .dc-label{font-size:.68rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:.7rem}
+  .swatches{display:flex;justify-content:center;gap:.55rem;margin-bottom:.6rem}
+  .swatch{width:17px;height:17px;border-radius:50%;box-shadow:inset 0 1px 2px rgba(0,0,0,.15), 0 0 0 2px #FFF, 0 0 0 3px rgba(201,162,75,.3)}
+  .dc-names{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:#6B5748}
+  .dc-style{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#8A7360;margin-top:.2rem}
+  .dotline{border:none;border-top:1px dashed rgba(201,162,75,.5);margin:1.4rem auto;width:82%}
+  .story-venue{font-family:'Cormorant Garamond',serif;font-size:1.08rem;color:#4A3B33;margin-bottom:1rem}
+  .dir-btn{
+    display:inline-flex;align-items:center;gap:.5rem;
+    padding:.75rem 1.8rem;border-radius:999px;text-decoration:none;
+    background:var(--maroon);color:#FBEDD6;font-size:.8rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+    box-shadow:0 8px 22px rgba(122,46,60,.3);transition:transform .3s,box-shadow .3s;
+  }
+  .dir-btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(122,46,60,.4)}
+  .dir-btn svg{width:14px;height:14px}
+
+  /* gentle float for scene props */
+  .fl-slow{animation:hover 8s ease-in-out infinite alternate}
+  .fl-med{animation:hover 6s ease-in-out infinite alternate;animation-delay:1.2s}
+  .cl-drift{animation:drift 22s ease-in-out infinite alternate}
+  .fw-pop{transform-origin:center;animation:pop 3.2s ease-in-out infinite}
+  @keyframes pop{0%,70%,100%{transform:scale(.4);opacity:0}78%{transform:scale(1);opacity:1}92%{transform:scale(1.15);opacity:0}}
+  .light-tw{animation:twinkle 2.4s ease-in-out infinite}
+
+  /* gallery */
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+  .g-item{
+    aspect-ratio:3/4;border-radius:18px;overflow:hidden;position:relative;
+    background:linear-gradient(160deg,#F6ECDA,#EBD9BC);
+    border:1.5px solid var(--gold);box-shadow:0 10px 26px rgba(122,46,60,.12);
+    display:flex;align-items:center;justify-content:center;color:#A8946F;font-size:.7rem;letter-spacing:.12em;
+  }
+  .g-item:nth-child(1){grid-column:1/-1;aspect-ratio:16/10}
+  .g-item img{width:100%;height:100%;object-fit:cover;animation:kenburns 14s ease-in-out infinite alternate}
+  @keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.12) translate(2%,2%)}}
+
+  /* blessing / rsvp band — warm maroon dusk */
+  .band{
+    background:
+      radial-gradient(ellipse 120% 55% at 50% -8%, rgba(222,147,167,.35) 0%, transparent 55%),
+      linear-gradient(180deg,#8A3A49,var(--maroon-deep));
+    color:#FBEDD6;position:relative;overflow:hidden;
+  }
+  .band h2{color:#FDF3DC}
+  .band .eyebrow{color:#F0B9C6}
+  .band > *{position:relative;z-index:2}
+  .scallop{display:block;width:100%;height:16px;
+    background-image:radial-gradient(circle at 8px 20px, transparent 10px, #8A3A49 11px);
+    background-size:16px 16px;background-repeat:repeat-x;}
+  .scallop.flip{transform:rotate(180deg);
+    background-image:radial-gradient(circle at 8px 20px, transparent 10px, #5C1F2C 11px);}
+  .quote{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;max-width:320px;margin:0 auto}
+  .btn{
+    display:inline-block;margin-top:1.3rem;padding:1rem 2.4rem;border-radius:999px;position:relative;overflow:hidden;
+    background:linear-gradient(120deg,#A9873F,var(--gold-bright) 45%,#A9873F);
+    color:var(--maroon-deep);text-decoration:none;font-weight:700;font-size:.95rem;letter-spacing:.05em;
+    box-shadow:0 0 32px rgba(239,217,160,.35);transition:transform .3s,box-shadow .3s;
+  }
+  .btn::after{
+    content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.8),transparent);
+    animation:sweep 3s ease-in-out 1s infinite;
+  }
+  .btn:hover{transform:translateY(-2px)}
+
+  footer{color:#E8C9A9;text-align:center;padding:2.2rem 1.5rem;font-size:.8rem}
+  footer .fh{font-family:'Great Vibes',cursive;font-size:1.8rem}
+
+  #music-btn{
+    position:fixed;bottom:18px;right:18px;z-index:58;width:46px;height:46px;border-radius:50%;
+    background:var(--maroon);color:var(--gold-bright);border:1.5px solid var(--gold);
+    font-size:1.1rem;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.3);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal,.cover-om,.cover-invite,.cover-names,.cover-date,.cover-rule,.open-btn,.medallion{opacity:1;transform:none}
+    .petal,.spark,.confetti,.dust,#fireworks{display:none}
+    .name-underline path,.weds-ring circle{stroke-dashoffset:0}
+    .lotus path{transform:scale(1);opacity:1}
+    .name-underline circle{opacity:1}
+  }
+</style>
+</head>
+<body class="locked">
+
+<div id="progress"></div>
+<canvas id="fireworks"></canvas>
+
+<!-- ================= COVER — romantic blush dawn ================= -->
+<div id="cover">
+  <div class="door left"></div>
+  <div class="door right"></div>
+  <div class="cover-content">
+    <span class="cloud" style="width:220px;height:80px;top:10%;left:-4%;background:#FCEFE4"></span>
+    <span class="cloud" style="width:180px;height:70px;top:22%;right:-6%;background:#F9DCE2;animation-delay:4s"></span>
+    <span class="cloud" style="width:240px;height:90px;bottom:14%;left:-8%;background:#FBE7DA;animation-delay:8s"></span>
+
+    <svg class="balloon" style="left:10%;top:13%" width="44" height="66" viewBox="0 0 44 66" aria-hidden="true">
+      <path d="M22 2 C36 2 42 14 42 24 C42 36 30 44 22 48 C14 44 2 36 2 24 C2 14 8 2 22 2Z" fill="#DE93A7"/>
+      <path d="M22 2 C27 2 30 14 30 24 C30 36 26 44 22 48 C18 44 14 36 14 24 C14 14 17 2 22 2Z" fill="#F3CBD4"/>
+      <path d="M16 50 L28 50 L26 60 L18 60 Z" fill="#C98A7E"/>
+    </svg>
+    <svg class="balloon" style="right:9%;top:30%;animation-delay:2.4s" width="34" height="52" viewBox="0 0 44 66" aria-hidden="true">
+      <path d="M22 2 C36 2 42 14 42 24 C42 36 30 44 22 48 C14 44 2 36 2 24 C2 14 8 2 22 2Z" fill="#EFB08A"/>
+      <path d="M22 2 C27 2 30 14 30 24 C30 36 26 44 22 48 C18 44 14 36 14 24 C14 14 17 2 22 2Z" fill="#FBE3CB"/>
+      <path d="M16 50 L28 50 L26 60 L18 60 Z" fill="#C98A7E"/>
+    </svg>
+
+    <svg class="mandala" viewBox="0 0 200 200" fill="none" stroke="#C9A24B" aria-hidden="true">
+      <circle cx="100" cy="100" r="96" stroke-width=".6" stroke-dasharray="2 5"/>
+      <circle cx="100" cy="100" r="84" stroke-width=".5" stroke-dasharray="10 6"/>
+      <g stroke-width=".6">
+        <path d="M100 4 L104 20 L100 34 L96 20 Z"/><path d="M100 196 L104 180 L100 166 L96 180 Z"/>
+        <path d="M4 100 L20 96 L34 100 L20 104 Z"/><path d="M196 100 L180 96 L166 100 L180 104 Z"/>
+        <path d="M32 32 L44 40 L52 52 L40 44 Z"/><path d="M168 168 L156 160 L148 148 L160 156 Z"/>
+        <path d="M168 32 L160 44 L148 52 L156 40 Z"/><path d="M32 168 L40 156 L52 148 L44 160 Z"/>
+      </g>
+    </svg>
+    <svg class="mandala inner" viewBox="0 0 200 200" fill="none" stroke="#DE93A7" aria-hidden="true">
+      <circle cx="100" cy="100" r="95" stroke-width=".5" stroke-dasharray="1 7"/>
+      <circle cx="100" cy="100" r="70" stroke-width=".5" stroke-dasharray="14 8"/>
+      <g stroke-width=".5">
+        <ellipse cx="100" cy="18" rx="6" ry="14"/><ellipse cx="100" cy="182" rx="6" ry="14"/>
+        <ellipse cx="18" cy="100" rx="14" ry="6"/><ellipse cx="182" cy="100" rx="14" ry="6"/>
+      </g>
+    </svg>
+
+    <div class="medallion">
+      <span class="ring"></span><span class="ring2"></span>
+      <span class="mono">S·R</span>
+      <span class="heart">♥</span>
+    </div>
+    <p class="cover-om">॥ श्री गणेशाय नमः ॥</p>
+    <p class="cover-invite">You are cordially invited</p>
+    <div class="cover-names">Savi <span class="cover-amp">&amp;</span> Rishabh</div>
+    <svg class="cover-rule" viewBox="0 0 150 14" aria-hidden="true">
+      <line x1="0" y1="7" x2="58" y2="7" stroke="#C9A24B" stroke-width="1"/>
+      <line x1="92" y1="7" x2="150" y2="7" stroke="#C9A24B" stroke-width="1"/>
+      <path d="M75 1 L80 7 L75 13 L70 7 Z" fill="#DE93A7"/>
+      <circle cx="63" cy="7" r="1.6" fill="#C9A24B"/><circle cx="87" cy="7" r="1.6" fill="#C9A24B"/>
+    </svg>
+    <p class="cover-date">24 · 25 November 2026 — Vrindavan</p>
+    <button class="open-btn" id="open-btn">✦ Open Invitation ✦</button>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- toran -->
+  <svg class="toran" viewBox="0 0 480 92" aria-hidden="true">
+    <path d="M0 10 Q120 34 240 10 Q360 34 480 10" fill="none" stroke="#8FAE85" stroke-width="3"/>
+    <g fill="#7A9B70">
+      <path d="M30 15 q8 12 0 22 q-8 -10 0 -22Z"/><path d="M110 24 q8 12 0 22 q-8 -10 0 -22Z"/>
+      <path d="M190 16 q8 12 0 22 q-8 -10 0 -22Z"/><path d="M270 18 q8 12 0 22 q-8 -10 0 -22Z"/>
+      <path d="M350 24 q8 12 0 22 q-8 -10 0 -22Z"/><path d="M430 15 q8 12 0 22 q-8 -10 0 -22Z"/>
+    </g>
+    <g>
+      <g class="strand"><line x1="70" y1="21" x2="70" y2="52" stroke="#C9A24B" stroke-width="1"/>
+        <circle cx="70" cy="34" r="6" fill="#EFA22F"/><circle cx="70" cy="46" r="6" fill="#E08A22"/><circle cx="70" cy="58" r="6.5" fill="#EFA22F"/><circle cx="70" cy="70" r="4" fill="#DE93A7"/></g>
+      <g class="strand"><line x1="155" y1="27" x2="155" y2="66" stroke="#C9A24B" stroke-width="1"/>
+        <circle cx="155" cy="38" r="6" fill="#E08A22"/><circle cx="155" cy="50" r="6" fill="#EFA22F"/><circle cx="155" cy="62" r="6.5" fill="#E08A22"/><circle cx="155" cy="74" r="4" fill="#DE93A7"/></g>
+      <g class="strand"><line x1="240" y1="17" x2="240" y2="72" stroke="#C9A24B" stroke-width="1"/>
+        <circle cx="240" cy="30" r="6" fill="#EFA22F"/><circle cx="240" cy="42" r="6" fill="#E08A22"/><circle cx="240" cy="54" r="6" fill="#EFA22F"/><circle cx="240" cy="66" r="6.5" fill="#E08A22"/><circle cx="240" cy="79" r="4.5" fill="#DE93A7"/></g>
+      <g class="strand"><line x1="325" y1="27" x2="325" y2="66" stroke="#C9A24B" stroke-width="1"/>
+        <circle cx="325" cy="38" r="6" fill="#EFA22F"/><circle cx="325" cy="50" r="6" fill="#E08A22"/><circle cx="325" cy="62" r="6.5" fill="#EFA22F"/><circle cx="325" cy="74" r="4" fill="#DE93A7"/></g>
+      <g class="strand"><line x1="410" y1="21" x2="410" y2="52" stroke="#C9A24B" stroke-width="1"/>
+        <circle cx="410" cy="34" r="6" fill="#E08A22"/><circle cx="410" cy="46" r="6" fill="#EFA22F"/><circle cx="410" cy="58" r="6.5" fill="#E08A22"/><circle cx="410" cy="70" r="4" fill="#DE93A7"/></g>
+    </g>
+  </svg>
+
+  <!-- Ganesh vandana -->
+  <section style="padding-top:2rem">
+    <div class="reveal">
+      <svg class="diya" viewBox="0 0 64 64" aria-hidden="true">
+        <ellipse class="glow" cx="32" cy="20" rx="14" ry="16" fill="#EFD9A0" opacity=".4"/>
+        <path class="flame" d="M32 8 C36 16 38 20 32 28 C26 20 28 16 32 8Z" fill="#EFA22F"/>
+        <path class="flame" d="M32 14 C34 18 35 20 32 25 C29 20 30 18 32 14Z" fill="#FBF0C8"/>
+        <path d="M12 34 Q32 46 52 34 Q50 48 32 50 Q14 48 12 34Z" fill="#7A2E3C" stroke="#C9A24B" stroke-width="1.2"/>
+      </svg>
+      <p class="hindi" style="font-size:1.5rem">ॐ</p>
+      <p class="hindi" style="font-size:1.02rem;line-height:2.1;opacity:.92">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।<br>निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥</p>
+      <svg class="lotus" viewBox="0 0 92 54" aria-hidden="true">
+        <path d="M46 8 C52 22 52 36 46 48 C40 36 40 22 46 8Z" fill="#DE93A7"/>
+        <path d="M30 16 C42 24 46 36 46 48 C34 44 28 30 30 16Z" fill="#E8ACBC"/>
+        <path d="M62 16 C50 24 46 36 46 48 C58 44 64 30 62 16Z" fill="#E8ACBC"/>
+        <path d="M15 30 C29 32 40 40 46 48 C32 50 19 43 15 30Z" fill="#F3CBD4"/>
+        <path d="M77 30 C63 32 52 40 46 48 C60 50 73 43 77 30Z" fill="#F3CBD4"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Couple + families -->
+  <section style="padding-top:1rem">
+    <p class="eyebrow reveal">Together with their families</p>
+    <div class="reveal d1">
+      <div class="arch-wrap"><div class="aura"></div>
+        <div class="arch"><div class="arch-inner">BRIDE PHOTO</div></div>
+      </div>
+      <div class="script-name">Savi</div>
+      <svg class="name-underline" viewBox="0 0 130 16" aria-hidden="true">
+        <path d="M6 9 Q34 3 65 9 Q96 15 124 9"/><circle cx="65" cy="9" r="2.4"/>
+      </svg>
+      <p class="family">Daughter of <b>[Mother's name]</b> &amp; <b>[Father's name]</b></p>
+    </div>
+    <div class="reveal d2">
+      <svg class="weds-ring" viewBox="0 0 58 42" aria-hidden="true">
+        <circle cx="21" cy="21" r="14"/><circle cx="37" cy="21" r="14"/>
+      </svg>
+      <p class="weds">weds</p>
+    </div>
+    <div class="reveal d3">
+      <div class="arch-wrap"><div class="aura"></div>
+        <div class="arch"><div class="arch-inner">GROOM PHOTO</div></div>
+      </div>
+      <div class="script-name">Rishabh</div>
+      <svg class="name-underline" viewBox="0 0 130 16" aria-hidden="true">
+        <path d="M6 9 Q34 3 65 9 Q96 15 124 9"/><circle cx="65" cy="9" r="2.4"/>
+      </svg>
+      <p class="family">Son of <b>[Mother's name]</b> &amp; <b>[Father's name]</b></p>
+    </div>
+    <p class="reveal d4" style="margin-top:1.6rem;font-size:.95rem">request the pleasure of your company<br>as two families become one</p>
+  </section>
+
+  <!-- Save the date — scratch card -->
+  <section style="padding-bottom:1.4rem">
+    <p class="eyebrow reveal">Save the date</p>
+    <h2 class="reveal d1">Scratch to Reveal</h2>
+    <div class="scratch-wrap reveal d2">
+      <div class="scratch-under">
+        <p class="su-hindi">शुभ विवाह</p>
+        <div class="su-date">24 <span>&amp;</span> 25</div>
+        <p class="su-month">November 2026</p>
+        <p class="su-city">Vrindavan</p>
+      </div>
+      <canvas id="scratch"></canvas>
+    </div>
+    <p class="scratch-hint reveal d3">Rub the card with your finger to unlock the countdown ✨</p>
+  </section>
+
+  <!-- Countdown — hidden until the scratch card is revealed -->
+  <section style="padding-top:.4rem" id="countdown-sec">
+    <p class="eyebrow reveal">The countdown begins</p>
+    <div class="count-wrap">
+      <div class="tile reveal d1"><div class="count-num" id="cd-d">–</div><div class="count-label">Days</div></div>
+      <div class="tile reveal d2"><div class="count-num" id="cd-h">–</div><div class="count-label">Hours</div></div>
+      <div class="tile reveal d3"><div class="count-num" id="cd-m">–</div><div class="count-label">Mins</div></div>
+    </div>
+  </section>
+
+  <!-- ================= EVENT STORY CARDS ================= -->
+  <section>
+    <p class="eyebrow reveal">Join us for</p>
+    <h2 class="reveal d1">The Celebrations</h2>
+  </section>
+
+  <!-- ===== HALDI ===== -->
+  <div class="story reveal">
+    <div class="story-hero">
+      <svg viewBox="0 0 392 300" aria-hidden="true">
+        <defs>
+          <linearGradient id="skyH" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#FFE9B8"/><stop offset=".55" stop-color="#FFD98F"/><stop offset="1" stop-color="#FBEDD0"/>
+          </linearGradient>
+          <radialGradient id="sunH" cx=".5" cy=".5" r=".5">
+            <stop offset="0" stop-color="#FFF6D8"/><stop offset="1" stop-color="#FFD98F" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="392" height="300" fill="url(#skyH)"/>
+        <circle cx="196" cy="120" r="90" fill="url(#sunH)"/>
+        <circle cx="196" cy="120" r="34" fill="#FFE9A6"/>
+        <ellipse class="cl-drift" cx="80" cy="60" rx="55" ry="16" fill="#FFF4DA" opacity=".9"/>
+        <ellipse class="cl-drift" cx="320" cy="90" rx="60" ry="17" fill="#FFF4DA" opacity=".85" style="animation-delay:5s"/>
+        <!-- marigold garland strings -->
+        <g class="fl-slow">
+          <path d="M20 0 Q26 60 20 110" stroke="#C9A24B" stroke-width="1" fill="none"/>
+          <circle cx="21" cy="30" r="7" fill="#EFA22F"/><circle cx="22" cy="48" r="7" fill="#E08A22"/><circle cx="21" cy="66" r="7" fill="#EFA22F"/><circle cx="20" cy="84" r="7" fill="#E08A22"/><circle cx="20" cy="102" r="5" fill="#DE93A7"/>
+        </g>
+        <g class="fl-med">
+          <path d="M372 0 Q366 60 372 110" stroke="#C9A24B" stroke-width="1" fill="none"/>
+          <circle cx="371" cy="30" r="7" fill="#E08A22"/><circle cx="370" cy="48" r="7" fill="#EFA22F"/><circle cx="371" cy="66" r="7" fill="#E08A22"/><circle cx="372" cy="84" r="7" fill="#EFA22F"/><circle cx="372" cy="102" r="5" fill="#DE93A7"/>
+        </g>
+        <!-- garden -->
+        <ellipse cx="196" cy="330" rx="260" ry="90" fill="#BCD9A0"/>
+        <ellipse cx="60" cy="250" rx="55" ry="40" fill="#9CC47E"/>
+        <ellipse cx="340" cy="255" rx="60" ry="42" fill="#9CC47E"/>
+        <!-- haldi thaal on a pedestal -->
+        <rect x="166" y="228" width="60" height="34" rx="6" fill="#E8C9A9"/>
+        <ellipse cx="196" cy="228" rx="46" ry="13" fill="#F6E3B8" stroke="#C9A24B" stroke-width="1.5"/>
+        <ellipse cx="196" cy="225" rx="34" ry="9" fill="#F2B93B"/>
+        <ellipse cx="196" cy="224" rx="24" ry="6" fill="#FFD24D"/>
+        <!-- petals scattered -->
+        <circle cx="150" cy="248" r="4.5" fill="#EFA22F"/><circle cx="242" cy="252" r="4.5" fill="#DE93A7"/>
+        <circle cx="130" cy="266" r="4" fill="#E08A22"/><circle cx="262" cy="268" r="4" fill="#EFA22F"/>
+        <!-- banana leaves -->
+        <path d="M96 300 C70 250 76 210 104 190 C112 226 112 264 96 300Z" fill="#7A9B70"/>
+        <path d="M296 300 C322 250 316 210 288 190 C280 226 280 264 296 300Z" fill="#7A9B70"/>
+        <!-- flying petals -->
+        <ellipse class="fl-slow" cx="120" cy="120" rx="5" ry="3" fill="#EFA22F"/>
+        <ellipse class="fl-med" cx="280" cy="140" rx="5" ry="3" fill="#FFD24D"/>
+      </svg>
+      <div class="story-title">Haldi</div>
+      <div class="story-when">Tuesday | 24 | Nov 2026 <b>·</b> 10:00 AM</div>
+    </div>
+    <div class="story-body">
+      <p class="story-quote">"A morning drenched in turmeric and sunshine, where laughter stains deeper than haldi ever could."</p>
+      <p class="dc-label">Dress Code</p>
+      <div class="swatches">
+        <span class="swatch" style="background:#F2B93B"></span>
+        <span class="swatch" style="background:#EFA22F"></span>
+        <span class="swatch" style="background:#FFFDF2"></span>
+      </div>
+      <p class="dc-names">Haldi Yellow · Marigold · White</p>
+      <p class="dc-style">Comfortable cottons — splash friendly</p>
+      <hr class="dotline">
+      <p class="story-venue">[Venue name] · [Lawn / Courtyard]</p>
+      <a class="dir-btn" href="https://maps.google.com/?q=Vrindavan" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21 C7 15 4 11.5 4 8.5 A8 8 0 0 1 20 8.5 C20 11.5 17 15 12 21Z"/><circle cx="12" cy="9" r="2.6"/></svg>
+        Get Directions
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== SANGEET ===== -->
+  <div class="story reveal">
+    <div class="story-hero">
+      <svg viewBox="0 0 392 300" aria-hidden="true">
+        <defs>
+          <linearGradient id="skyS" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#EFB6CC"/><stop offset=".5" stop-color="#F6D4DC"/><stop offset="1" stop-color="#FBEAE0"/>
+          </linearGradient>
+        </defs>
+        <rect width="392" height="300" fill="url(#skyS)"/>
+        <ellipse class="cl-drift" cx="90" cy="66" rx="60" ry="17" fill="#FBE4EA" opacity=".95"/>
+        <ellipse class="cl-drift" cx="310" cy="46" rx="55" ry="15" fill="#FDEFF0" opacity=".9" style="animation-delay:6s"/>
+        <!-- firework pops -->
+        <g class="fw-pop" style="animation-delay:.4s">
+          <g stroke="#E8B04B" stroke-width="2" stroke-linecap="round">
+            <line x1="330" y1="60" x2="330" y2="44"/><line x1="330" y1="76" x2="330" y2="92"/>
+            <line x1="314" y1="68" x2="298" y2="68"/><line x1="346" y1="68" x2="362" y2="68"/>
+            <line x1="318" y1="56" x2="308" y2="46"/><line x1="342" y1="80" x2="352" y2="90"/>
+            <line x1="342" y1="56" x2="352" y2="46"/><line x1="318" y1="80" x2="308" y2="90"/>
+          </g><circle cx="330" cy="68" r="3.4" fill="#DE93A7"/>
+        </g>
+        <g class="fw-pop" style="animation-delay:1.8s">
+          <g stroke="#DE93A7" stroke-width="2" stroke-linecap="round">
+            <line x1="70" y1="100" x2="70" y2="86"/><line x1="70" y1="114" x2="70" y2="128"/>
+            <line x1="56" y1="107" x2="42" y2="107"/><line x1="84" y1="107" x2="98" y2="107"/>
+          </g><circle cx="70" cy="107" r="3" fill="#E8B04B"/>
+        </g>
+        <!-- hot air balloon -->
+        <g class="fl-slow">
+          <path d="M196 30 C212 30 220 44 220 56 C220 70 206 80 196 85 C186 80 172 70 172 56 C172 44 180 30 196 30Z" fill="#DE93A7"/>
+          <path d="M196 30 C202 30 206 44 206 56 C206 70 200 80 196 85 C192 80 186 70 186 56 C186 44 190 30 196 30Z" fill="#F3CBD4"/>
+          <path d="M190 87 L202 87 L200 97 L192 97Z" fill="#C98A7E"/>
+        </g>
+        <!-- shamiana tent -->
+        <path d="M196 130 L96 200 L296 200 Z" fill="#D66A8F"/>
+        <path d="M196 130 L146 200 L246 200 Z" fill="#E8899F"/>
+        <line x1="196" y1="130" x2="196" y2="118" stroke="#7A2E3C" stroke-width="2"/>
+        <circle cx="196" cy="115" r="4" fill="#E8B04B"/>
+        <!-- bunting curtains -->
+        <g>
+          <path d="M104 200 q8 26 0 52" stroke="#E8B04B" stroke-width="10" fill="none"/>
+          <path d="M140 200 q-8 26 0 52" stroke="#8FB5D9" stroke-width="10" fill="none"/>
+          <path d="M176 200 q8 26 0 52" stroke="#DE93A7" stroke-width="10" fill="none"/>
+          <path d="M212 200 q-8 26 0 52" stroke="#F2B93B" stroke-width="10" fill="none"/>
+          <path d="M248 200 q8 26 0 52" stroke="#9CC47E" stroke-width="10" fill="none"/>
+          <path d="M284 200 q-8 26 0 52" stroke="#E8899F" stroke-width="10" fill="none"/>
+        </g>
+        <!-- ground + cushions -->
+        <ellipse cx="196" cy="330" rx="270" ry="86" fill="#C4DBA8"/>
+        <ellipse cx="120" cy="272" rx="34" ry="12" fill="#8FB5D9"/>
+        <rect x="98" y="256" width="18" height="10" rx="3" fill="#DE93A7" transform="rotate(-8 107 261)"/>
+        <rect x="124" y="254" width="18" height="10" rx="3" fill="#F2B93B" transform="rotate(6 133 259)"/>
+        <ellipse cx="272" cy="276" rx="34" ry="12" fill="#8FB5D9"/>
+        <rect x="252" y="260" width="18" height="10" rx="3" fill="#9CC47E" transform="rotate(-6 261 265)"/>
+        <rect x="278" y="258" width="18" height="10" rx="3" fill="#DE93A7" transform="rotate(7 287 263)"/>
+        <!-- fairy light string -->
+        <path d="M0 18 Q98 44 196 20 Q294 44 392 18" stroke="#C9A24B" stroke-width="1.2" fill="none"/>
+        <g fill="#FFE9A6">
+          <circle class="light-tw" cx="50" cy="28" r="2.6"/><circle class="light-tw" cx="120" cy="34" r="2.6" style="animation-delay:.5s"/>
+          <circle class="light-tw" cx="196" cy="22" r="2.6" style="animation-delay:1s"/><circle class="light-tw" cx="272" cy="34" r="2.6" style="animation-delay:1.5s"/>
+          <circle class="light-tw" cx="344" cy="27" r="2.6" style="animation-delay:2s"/>
+        </g>
+      </svg>
+      <div class="story-title">Sangeet Night</div>
+      <div class="story-when">Tuesday | 24 | Nov 2026 <b>·</b> 7:00 PM</div>
+    </div>
+    <div class="story-body">
+      <p class="story-quote">"An evening of music, dance, and endless celebration — bring your best moves and your loudest cheers."</p>
+      <p class="dc-label">Dress Code</p>
+      <div class="swatches">
+        <span class="swatch" style="background:#7A2E3C"></span>
+        <span class="swatch" style="background:#C9A24B"></span>
+        <span class="swatch" style="background:#F7EFDD"></span>
+      </div>
+      <p class="dc-names">Maroon · Gold · Cream</p>
+      <p class="dc-style">Traditional Indian / Indo-Western</p>
+      <hr class="dotline">
+      <p class="story-venue">[Venue name] · [Grand Courtyard]</p>
+      <a class="dir-btn" href="https://maps.google.com/?q=Vrindavan" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21 C7 15 4 11.5 4 8.5 A8 8 0 0 1 20 8.5 C20 11.5 17 15 12 21Z"/><circle cx="12" cy="9" r="2.6"/></svg>
+        Get Directions
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== GHUD CHADI ===== -->
+  <div class="story reveal">
+    <div class="story-hero">
+      <svg viewBox="0 0 392 300" aria-hidden="true">
+        <defs>
+          <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#F6C6A5"/><stop offset=".55" stop-color="#F9DCC3"/><stop offset="1" stop-color="#FBEDDD"/>
+          </linearGradient>
+        </defs>
+        <rect width="392" height="300" fill="url(#skyG)"/>
+        <circle cx="310" cy="70" r="30" fill="#FFDFA6"/>
+        <ellipse class="cl-drift" cx="110" cy="52" rx="60" ry="16" fill="#FBE7D4" opacity=".95"/>
+        <ellipse class="cl-drift" cx="300" cy="120" rx="56" ry="15" fill="#FDEFE0" opacity=".9" style="animation-delay:5s"/>
+        <!-- ground -->
+        <ellipse cx="196" cy="330" rx="270" ry="88" fill="#D8C39A"/>
+        <!-- trees -->
+        <ellipse cx="50" cy="200" rx="40" ry="46" fill="#9CC47E"/>
+        <rect x="45" y="228" width="10" height="34" fill="#8A6A4B"/>
+        <ellipse cx="352" cy="206" rx="36" ry="42" fill="#9CC47E"/>
+        <rect x="347" y="232" width="10" height="30" fill="#8A6A4B"/>
+        <!-- decorated horse -->
+        <g class="fl-slow" style="animation-duration:5s">
+          <!-- body -->
+          <path d="M136 216 C136 196 156 186 186 186 L232 186 C252 186 262 196 262 210 C262 222 252 228 244 228 L156 228 C144 228 136 224 136 216Z" fill="#FDFAF2"/>
+          <!-- neck + head -->
+          <path d="M236 190 C244 168 254 154 268 148 C280 143 288 148 288 158 C288 165 283 170 276 174 C266 180 258 192 254 202 Z" fill="#FDFAF2"/>
+          <path d="M268 148 C274 142 280 141 284 144 L280 152 Z" fill="#E8D9C2"/>
+          <!-- ear + eye -->
+          <path d="M282 146 L287 136 L290 148 Z" fill="#FDFAF2"/>
+          <circle cx="279" cy="156" r="2" fill="#4A3B33"/>
+          <!-- bridle plume -->
+          <path d="M284 138 C288 128 296 124 300 126 C298 134 292 140 286 142Z" fill="#DE93A7"/>
+          <!-- legs -->
+          <rect x="152" y="226" width="8" height="42" rx="3" fill="#FDFAF2"/>
+          <rect x="176" y="226" width="8" height="42" rx="3" fill="#F2E9D8"/>
+          <rect x="216" y="226" width="8" height="42" rx="3" fill="#FDFAF2"/>
+          <rect x="240" y="226" width="8" height="42" rx="3" fill="#F2E9D8"/>
+          <!-- tail -->
+          <path d="M138 206 C124 208 116 220 116 234 C126 230 134 222 140 214Z" fill="#E8D9C2"/>
+          <!-- decorated saddle cloth -->
+          <path d="M168 186 L232 186 L226 216 L174 216 Z" fill="#C42B4B"/>
+          <path d="M168 186 L232 186 L229 200 L171 200 Z" fill="#DE5A74"/>
+          <g fill="#E8B04B">
+            <circle cx="180" cy="212" r="2.4"/><circle cx="196" cy="212" r="2.4"/><circle cx="212" cy="212" r="2.4"/>
+          </g>
+          <!-- groom -->
+          <g>
+            <rect x="186" y="140" width="22" height="34" rx="8" fill="#D8A24B"/>
+            <circle cx="197" cy="128" r="11" fill="#E8B88A"/>
+            <!-- safa + kalgi -->
+            <path d="M185 124 C185 112 209 112 209 124 L207 118 L201 122 L197 116 L193 122 L187 118 Z" fill="#C42B4B"/>
+            <path d="M197 108 C199 102 203 100 206 102 C204 108 201 111 198 112Z" fill="#E8B04B"/>
+            <!-- sehra strings -->
+            <g stroke="#EFD9A0" stroke-width="1.4">
+              <line x1="190" y1="124" x2="190" y2="138"/><line x1="194" y1="126" x2="194" y2="140"/>
+              <line x1="200" y1="126" x2="200" y2="140"/><line x1="204" y1="124" x2="204" y2="138"/>
+            </g>
+            <!-- arm -->
+            <path d="M186 150 C178 156 174 164 174 172" stroke="#D8A24B" stroke-width="7" fill="none" stroke-linecap="round"/>
+          </g>
+        </g>
+        <!-- marigold showers -->
+        <ellipse class="fl-med" cx="110" cy="120" rx="5" ry="3" fill="#EFA22F"/>
+        <ellipse class="fl-slow" cx="320" cy="160" rx="5" ry="3" fill="#DE93A7"/>
+        <ellipse class="fl-med" cx="80" cy="160" rx="4" ry="2.6" fill="#E8B04B" style="animation-delay:2s"/>
+      </svg>
+      <div class="story-title">Ghud Chadi</div>
+      <div class="story-when">Wednesday | 25 | Nov 2026 <b>·</b> 4:00 PM</div>
+    </div>
+    <div class="story-body">
+      <p class="story-quote">"The groom rides in with dhol beats and dancing feet — join the baraat and bring the sky down with celebration."</p>
+      <p class="dc-label">Dress Code</p>
+      <div class="swatches">
+        <span class="swatch" style="background:#FBF3E0"></span>
+        <span class="swatch" style="background:#C9A24B"></span>
+        <span class="swatch" style="background:#EFB08A"></span>
+      </div>
+      <p class="dc-names">Ivory · Gold · Peach</p>
+      <p class="dc-style">Festive — ready to dance in the baraat</p>
+      <hr class="dotline">
+      <p class="story-venue">[Venue name] · [Procession route / Entrance]</p>
+      <a class="dir-btn" href="https://maps.google.com/?q=Vrindavan" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21 C7 15 4 11.5 4 8.5 A8 8 0 0 1 20 8.5 C20 11.5 17 15 12 21Z"/><circle cx="12" cy="9" r="2.6"/></svg>
+        Get Directions
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== PHERE ===== -->
+  <div class="story reveal">
+    <div class="story-hero">
+      <svg viewBox="0 0 392 300" aria-hidden="true">
+        <defs>
+          <linearGradient id="skyP" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#8E3A55"/><stop offset=".55" stop-color="#C05A72"/><stop offset="1" stop-color="#E8907F"/>
+          </linearGradient>
+          <radialGradient id="fireGlow" cx=".5" cy=".5" r=".5">
+            <stop offset="0" stop-color="#FFD98F" stop-opacity=".9"/><stop offset="1" stop-color="#FFD98F" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="392" height="300" fill="url(#skyP)"/>
+        <!-- stars -->
+        <g fill="#FFEFC9">
+          <circle class="light-tw" cx="50" cy="40" r="1.8"/><circle class="light-tw" cx="120" cy="26" r="1.4" style="animation-delay:.6s"/>
+          <circle class="light-tw" cx="330" cy="36" r="1.8" style="animation-delay:1.2s"/><circle class="light-tw" cx="280" cy="60" r="1.3" style="animation-delay:1.8s"/>
+          <circle class="light-tw" cx="360" cy="90" r="1.5" style="animation-delay:.9s"/>
+        </g>
+        <circle cx="330" cy="58" r="18" fill="#FFF0CE" opacity=".95"/>
+        <circle cx="336" cy="54" r="16" fill="url(#skyP)" opacity="0"/>
+        <!-- mandap -->
+        <rect x="86" y="230" width="220" height="14" rx="4" fill="#8A3A2E"/>
+        <rect x="96" y="120" width="9" height="112" fill="#C98A4B"/>
+        <rect x="287" y="120" width="9" height="112" fill="#C98A4B"/>
+        <path d="M76 122 Q196 76 316 122 L316 132 Q196 88 76 132 Z" fill="#C42B4B"/>
+        <path d="M76 122 Q196 76 316 122" fill="none" stroke="#E8B04B" stroke-width="3"/>
+        <!-- drapes -->
+        <path d="M100 128 C92 168 94 204 100 230 L116 230 C108 200 108 164 114 130 Z" fill="#E8899F"/>
+        <path d="M292 128 C300 168 298 204 292 230 L276 230 C284 200 284 164 278 130 Z" fill="#E8899F"/>
+        <!-- garlands from canopy -->
+        <g stroke="#C9A24B" stroke-width="1">
+          <path d="M140 112 q4 22 0 40" fill="none"/><path d="M196 100 q4 24 0 46" fill="none"/><path d="M252 112 q-4 22 0 40" fill="none"/>
+        </g>
+        <g fill="#EFA22F">
+          <circle cx="141" cy="124" r="4.5"/><circle cx="140" cy="138" r="4.5"/><circle cx="140" cy="150" r="4"/>
+          <circle cx="197" cy="114" r="4.5"/><circle cx="196" cy="128" r="4.5"/><circle cx="196" cy="142" r="4"/>
+          <circle cx="251" cy="124" r="4.5"/><circle cx="252" cy="138" r="4.5"/><circle cx="252" cy="150" r="4"/>
+        </g>
+        <!-- sacred fire -->
+        <circle cx="196" cy="216" r="46" fill="url(#fireGlow)"/>
+        <path d="M176 226 H216 L210 238 H182 Z" fill="#8A5A3B"/>
+        <path class="flame" d="M196 178 C206 192 208 202 196 216 C184 202 186 192 196 178Z" fill="#F2913B"/>
+        <path class="flame" d="M196 190 C202 198 203 204 196 212 C189 204 190 198 196 190Z" fill="#FFD24D" style="animation-delay:.3s"/>
+        <!-- couple silhouettes -->
+        <g fill="#5C1F2C">
+          <path d="M136 232 C136 210 146 198 156 198 C166 198 174 210 174 232 Z"/>
+          <circle cx="155" cy="190" r="9"/>
+          <path d="M146 186 C146 178 164 178 164 186 Z" fill="#C42B4B"/>
+          <path d="M218 232 C218 212 226 200 236 200 C246 200 254 212 254 232 Z"/>
+          <circle cx="236" cy="192" r="9"/>
+          <path d="M244 186 C252 190 254 200 252 210" stroke="#DE93A7" stroke-width="5" fill="none"/>
+        </g>
+        <!-- joined dupatta between them -->
+        <path d="M168 214 Q196 226 222 216" stroke="#E8B04B" stroke-width="4" fill="none"/>
+        <ellipse cx="196" cy="330" rx="270" ry="86" fill="#7A4A3E"/>
+        <!-- rangoli dots -->
+        <g fill="#EFD9A0"><circle cx="150" cy="256" r="2.4"/><circle cx="196" cy="262" r="2.4"/><circle cx="242" cy="256" r="2.4"/><circle cx="173" cy="260" r="1.8"/><circle cx="219" cy="260" r="1.8"/></g>
+      </svg>
+      <div class="story-title">Phere</div>
+      <div class="story-when">Wednesday | 25 | Nov 2026 <b>·</b> 7:30 PM</div>
+    </div>
+    <div class="story-body">
+      <p class="story-quote">"Seven vows around the sacred fire, under a sky full of blessings — the moment two souls become one."</p>
+      <p class="dc-label">Dress Code</p>
+      <div class="swatches">
+        <span class="swatch" style="background:#A61E2E"></span>
+        <span class="swatch" style="background:#C9A24B"></span>
+        <span class="swatch" style="background:#7A2E3C"></span>
+      </div>
+      <p class="dc-names">Red · Gold · Maroon</p>
+      <p class="dc-style">Traditional best — sarees &amp; sherwanis</p>
+      <hr class="dotline">
+      <p class="story-venue">[Venue name] · [Mandap Lawn]</p>
+      <a class="dir-btn" href="https://maps.google.com/?q=Vrindavan" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21 C7 15 4 11.5 4 8.5 A8 8 0 0 1 20 8.5 C20 11.5 17 15 12 21Z"/><circle cx="12" cy="9" r="2.6"/></svg>
+        Get Directions
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== RECEPTION ===== -->
+  <div class="story reveal">
+    <div class="story-hero">
+      <svg viewBox="0 0 392 300" aria-hidden="true">
+        <defs>
+          <linearGradient id="skyR" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#4A2440"/><stop offset=".6" stop-color="#7A3A5C"/><stop offset="1" stop-color="#B0607A"/>
+          </linearGradient>
+        </defs>
+        <rect width="392" height="300" fill="url(#skyR)"/>
+        <g fill="#FFEFC9">
+          <circle class="light-tw" cx="40" cy="30" r="1.6"/><circle class="light-tw" cx="110" cy="50" r="1.3" style="animation-delay:.7s"/>
+          <circle class="light-tw" cx="230" cy="26" r="1.6" style="animation-delay:1.3s"/><circle class="light-tw" cx="352" cy="44" r="1.5" style="animation-delay:1.9s"/>
+        </g>
+        <circle cx="60" cy="60" r="17" fill="#FFF0CE"/>
+        <!-- string lights -->
+        <path d="M0 40 Q98 78 196 46 Q294 80 392 42" stroke="#C9A24B" stroke-width="1.2" fill="none"/>
+        <path d="M0 74 Q98 110 196 80 Q294 112 392 76" stroke="#C9A24B" stroke-width="1.2" fill="none"/>
+        <g fill="#FFE9A6">
+          <circle class="light-tw" cx="60" cy="58" r="3"/><circle class="light-tw" cx="130" cy="66" r="3" style="animation-delay:.4s"/>
+          <circle class="light-tw" cx="196" cy="48" r="3" style="animation-delay:.8s"/><circle class="light-tw" cx="262" cy="66" r="3" style="animation-delay:1.2s"/>
+          <circle class="light-tw" cx="332" cy="56" r="3" style="animation-delay:1.6s"/>
+          <circle class="light-tw" cx="98" cy="96" r="3" style="animation-delay:.2s"/><circle class="light-tw" cx="196" cy="82" r="3" style="animation-delay:.6s"/>
+          <circle class="light-tw" cx="294" cy="96" r="3" style="animation-delay:1s"/>
+        </g>
+        <!-- stage arch of roses -->
+        <path d="M96 262 C96 160 296 160 296 262" fill="none" stroke="#8E4A5C" stroke-width="22"/>
+        <g fill="#DE93A7">
+          <circle cx="100" cy="238" r="7"/><circle cx="106" cy="212" r="7"/><circle cx="118" cy="190" r="7"/><circle cx="136" cy="174" r="7"/>
+          <circle cx="160" cy="164" r="7"/><circle cx="196" cy="160" r="7"/><circle cx="232" cy="164" r="7"/><circle cx="256" cy="174" r="7"/>
+          <circle cx="274" cy="190" r="7"/><circle cx="286" cy="212" r="7"/><circle cx="292" cy="238" r="7"/>
+        </g>
+        <g fill="#F3CBD4">
+          <circle cx="103" cy="225" r="4.6"/><circle cx="112" cy="200" r="4.6"/><circle cx="126" cy="181" r="4.6"/><circle cx="148" cy="168" r="4.6"/>
+          <circle cx="178" cy="161" r="4.6"/><circle cx="214" cy="161" r="4.6"/><circle cx="244" cy="168" r="4.6"/><circle cx="266" cy="181" r="4.6"/>
+          <circle cx="280" cy="200" r="4.6"/><circle cx="289" cy="225" r="4.6"/>
+        </g>
+        <!-- chandelier in arch -->
+        <line x1="196" y1="160" x2="196" y2="184" stroke="#C9A24B" stroke-width="1.4"/>
+        <path d="M182 184 H210 L204 196 H188 Z" fill="#E8B04B"/>
+        <circle class="light-tw" cx="196" cy="200" r="3.4" fill="#FFE9A6"/>
+        <!-- stage -->
+        <rect x="118" y="252" width="156" height="16" rx="6" fill="#C99AA8"/>
+        <rect x="130" y="240" width="132" height="14" rx="5" fill="#E3B8C4"/>
+        <!-- couple silhouettes -->
+        <g fill="#4A2430">
+          <path d="M166 242 C166 222 174 212 183 212 C192 212 199 222 199 242Z"/>
+          <circle cx="182" cy="204" r="8"/>
+          <path d="M196 242 C196 224 203 214 211 214 C219 214 226 224 226 242Z"/>
+          <circle cx="211" cy="206" r="8"/>
+        </g>
+        <!-- ground -->
+        <ellipse cx="196" cy="330" rx="270" ry="80" fill="#5C3A4A"/>
+        <g fill="#EFD9A0"><circle cx="140" cy="278" r="2"/><circle cx="196" cy="284" r="2"/><circle cx="252" cy="278" r="2"/></g>
+      </svg>
+      <div class="story-title">Reception</div>
+      <div class="story-when">Wednesday | 25 | Nov 2026 <b>·</b> 9:00 PM</div>
+    </div>
+    <div class="story-body">
+      <p class="story-quote">"One last dance under a thousand fairy lights — dinner, laughter, and the first evening of forever."</p>
+      <p class="dc-label">Dress Code</p>
+      <div class="swatches">
+        <span class="swatch" style="background:#F3CBD4"></span>
+        <span class="swatch" style="background:#EFD9A0"></span>
+        <span class="swatch" style="background:#DE93A7"></span>
+      </div>
+      <p class="dc-names">Pastels · Champagne · Rose</p>
+      <p class="dc-style">Cocktail / Evening formal</p>
+      <hr class="dotline">
+      <p class="story-venue">[Venue name] · [Banquet Hall]</p>
+      <a class="dir-btn" href="https://maps.google.com/?q=Vrindavan" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21 C7 15 4 11.5 4 8.5 A8 8 0 0 1 20 8.5 C20 11.5 17 15 12 21Z"/><circle cx="12" cy="9" r="2.6"/></svg>
+        Get Directions
+      </a>
+    </div>
+  </div>
+
+  <!-- Gallery -->
+  <section>
+    <p class="eyebrow reveal">Our story</p>
+    <h2 class="reveal d1">A Few Moments</h2>
+    <div class="gallery">
+      <div class="g-item reveal d1">PHOTO 1</div>
+      <div class="g-item reveal d2">PHOTO 2</div>
+      <div class="g-item reveal d3">PHOTO 3</div>
+    </div>
+  </section>
+
+  <!-- Blessing + RSVP -->
+  <div class="scallop"></div>
+  <div class="band" id="rsvp-band">
+    <section>
+      <p class="eyebrow reveal">With love</p>
+      <p class="quote reveal d1">"Your presence and blessings will make our celebration complete."</p>
+      <div class="reveal d2">
+        <svg class="lotus" viewBox="0 0 92 54" aria-hidden="true">
+          <path d="M46 8 C52 22 52 36 46 48 C40 36 40 22 46 8Z" fill="#C9A24B"/>
+          <path d="M30 16 C42 24 46 36 46 48 C34 44 28 30 30 16Z" fill="#DCB96E"/>
+          <path d="M62 16 C50 24 46 36 46 48 C58 44 64 30 62 16Z" fill="#DCB96E"/>
+          <path d="M15 30 C29 32 40 40 46 48 C32 50 19 43 15 30Z" fill="#EFD9A0"/>
+          <path d="M77 30 C63 32 52 40 46 48 C60 50 73 43 77 30Z" fill="#EFD9A0"/>
+        </svg>
+      </div>
+      <h2 class="reveal d2">Kindly RSVP</h2>
+      <a class="btn reveal d3" href="rsvp.html" target="_blank" rel="noopener">RSVP Now</a>
+    </section>
+    <footer>
+      <p class="fh shimmer">#RishSavi</p>
+      <p>24–25 November 2026 · Vrindavan</p>
+    </footer>
+  </div>
+</div>
+
+<audio id="bg-music" loop preload="auto" src="music.mp3"></audio>
+<button id="music-btn" aria-label="Toggle music" hidden>♪</button>
+
+<script>
+(function(){
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cover = document.getElementById('cover');
+  var content = cover.querySelector('.cover-content');
+
+  /* sparkles on cover */
+  if(!reduced){
+    for(var i=0;i<16;i++){
+      var s = document.createElement('span');
+      s.className = 'spark' + (i%3===0 ? ' pink':'');
+      s.textContent='✦';
+      s.style.left=(4+Math.random()*92)+'%';
+      s.style.top=(4+Math.random()*92)+'%';
+      s.style.animationDelay=(Math.random()*2.8)+'s';
+      content.appendChild(s);
+    }
+  }
+
+  /* fireworks — soft golds & pinks */
+  var cv = document.getElementById('fireworks');
+  var ctx = cv.getContext('2d');
+  var parts = [], rockets = [], running = false;
+  function resize(){ cv.width = innerWidth; cv.height = innerHeight; }
+  resize(); addEventListener('resize', resize);
+  var palette = ['#EFD9A0','#C9A24B','#DE93A7','#F3CBD4','#FFFFFF','#EFB08A'];
+  function launch(n){
+    if(reduced) return;
+    for(var i=0;i<n;i++){
+      rockets.push({
+        x: cv.width*(0.2+Math.random()*0.6),
+        y: cv.height,
+        vy: -(cv.height*0.011 + Math.random()*cv.height*0.004),
+        ty: cv.height*(0.18+Math.random()*0.25),
+        c: palette[Math.floor(Math.random()*palette.length)],
+        delay: i*420 + Math.random()*250,
+        t0: performance.now()
+      });
+    }
+    if(!running){ running=true; requestAnimationFrame(loop); }
+  }
+  function explode(x,y,c){
+    for(var i=0;i<44;i++){
+      var a=(Math.PI*2*i)/44 + Math.random()*.1;
+      var sp=1.6+Math.random()*3.4;
+      parts.push({x:x,y:y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,life:1,c:c,r:1.4+Math.random()*1.6});
+    }
+  }
+  function loop(now){
+    ctx.clearRect(0,0,cv.width,cv.height);
+    rockets = rockets.filter(function(r){
+      if(now - r.t0 < r.delay) return true;
+      r.y += r.vy;
+      ctx.beginPath(); ctx.arc(r.x,r.y,2,0,7); ctx.fillStyle=r.c; ctx.fill();
+      if(r.y <= r.ty){ explode(r.x,r.y,r.c); return false; }
+      return true;
+    });
+    parts = parts.filter(function(p){
+      p.x+=p.vx; p.y+=p.vy; p.vy+=0.045; p.vx*=.985; p.life-=.012;
+      if(p.life<=0) return false;
+      ctx.globalAlpha=Math.max(p.life,0);
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,7); ctx.fillStyle=p.c; ctx.fill();
+      ctx.globalAlpha=1;
+      return true;
+    });
+    if(rockets.length||parts.length){ requestAnimationFrame(loop); }
+    else { running=false; ctx.clearRect(0,0,cv.width,cv.height); }
+  }
+
+  /* open */
+  document.getElementById('open-btn').addEventListener('click', function(){
+    cover.classList.add('open');
+    document.body.classList.remove('locked');
+    window.scrollTo(0,0);
+    launch(6);
+    burstConfetti();
+    startPetals();
+    startDust();
+    tryMusic();
+    if(reduced){ cover.classList.add('done'); cover.style.display='none'; }
+    else { setTimeout(function(){ cover.classList.add('done'); }, 2000); }
+  });
+
+  function burstConfetti(){
+    if(reduced) return;
+    var colors=['#C9A24B','#EFD9A0','#DE93A7','#F3CBD4','#EFB08A','#EFA22F'];
+    for(var i=0;i<48;i++){
+      var c=document.createElement('div');
+      c.className='confetti';
+      var w=5+Math.random()*6;
+      c.style.cssText='position:fixed;width:'+w+'px;height:'+(w*.5)+'px;background:'+colors[i%colors.length]+
+        ';left:'+(Math.random()*100)+'vw;animation-duration:'+(2.4+Math.random()*2.6)+'s;animation-delay:'+(Math.random()*.6)+
+        's;border-radius:'+(i%2?'2px':'50%');
+      document.body.appendChild(c);
+      (function(el){ setTimeout(function(){ el.remove(); }, 6500); })(c);
+    }
+  }
+
+  /* petals — soft rose + marigold */
+  var petalsOn=false;
+  function startPetals(){
+    if(petalsOn||reduced) return;
+    petalsOn=true;
+    var colors=[['#F3CBD4','#DE93A7'],['#EFA22F','#C9702A'],['#E8ACBC','#C98A7E']];
+    for(var i=0;i<16;i++){
+      var wrap=document.createElement('div');
+      wrap.className='petal';
+      var size=10+Math.random()*12;
+      var c=colors[i%colors.length];
+      wrap.innerHTML='<svg width="'+size+'" height="'+size+'" viewBox="0 0 20 20"><path d="M10 1 C16 6 16 12 10 19 C4 12 4 6 10 1Z" fill="'+c[0]+'" stroke="'+c[1]+'" stroke-width=".8"/></svg>';
+      wrap.style.left=Math.random()*100+'vw';
+      wrap.style.animationDuration=(8+Math.random()*9)+'s';
+      wrap.style.animationDelay=(Math.random()*9)+'s';
+      wrap.querySelector('svg').style.animationDelay=(Math.random()*3)+'s';
+      document.body.appendChild(wrap);
+    }
+  }
+
+  function startDust(){
+    if(reduced) return;
+    for(var i=0;i<12;i++){
+      var d=document.createElement('div');
+      d.className='dust';
+      var sz=3+Math.random()*5;
+      d.style.width=d.style.height=sz+'px';
+      d.style.left=Math.random()*100+'vw';
+      d.style.animationDuration=(9+Math.random()*10)+'s';
+      d.style.animationDelay=(Math.random()*10)+'s';
+      document.body.appendChild(d);
+    }
+  }
+
+  /* reveals */
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  /* encore fireworks at RSVP */
+  var rsvpBand=document.getElementById('rsvp-band');
+  var enc=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ launch(3); enc.unobserve(e.target); }
+    });
+  },{threshold:.4});
+  enc.observe(rsvpBand);
+
+  /* progress */
+  var bar=document.getElementById('progress');
+  addEventListener('scroll', function(){
+    var h=document.documentElement;
+    bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+  },{passive:true});
+
+  /* countdown */
+  var target=new Date("2026-11-24T10:00:00+05:30").getTime();
+  function tick(){
+    var diff=Math.max(0,target-Date.now());
+    document.getElementById('cd-d').textContent=Math.floor(diff/864e5);
+    document.getElementById('cd-h').textContent=Math.floor(diff%864e5/36e5);
+    document.getElementById('cd-m').textContent=Math.floor(diff%36e5/6e4);
+  }
+  tick(); setInterval(tick,30000);
+
+  /* music */
+  var audio=document.getElementById('bg-music');
+  var btn=document.getElementById('music-btn');
+  function tryMusic(){
+    audio.volume = 0.35;
+    audio.addEventListener('error', function(){ btn.hidden = true; });
+    var p = audio.play();
+    if(p && p.then){
+      p.then(function(){ btn.hidden = false; })
+       .catch(function(){ /* no music.mp3 uploaded yet, or blocked */ });
+    }
+  }
+  btn.addEventListener('click', function(){
+    if(audio.paused){ audio.play(); btn.textContent='♪'; }
+    else { audio.pause(); btn.textContent='∅'; }
+  });
+
+  /* ============ scratch-to-reveal date card ============ */
+  function initScratch(){
+    var c = document.getElementById('scratch');
+    if(!c) return;
+    var wrap = c.parentElement;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = wrap.clientWidth, h = wrap.clientHeight;
+    c.width = w * dpr; c.height = h * dpr;
+    var x = c.getContext('2d');
+    x.scale(dpr, dpr);
+    var g = x.createLinearGradient(0, 0, w, h);
+    g.addColorStop(0, '#E8A7B8'); g.addColorStop(.5, '#EFC9A6'); g.addColorStop(1, '#DE93A7');
+    x.fillStyle = g; x.fillRect(0, 0, w, h);
+    x.fillStyle = 'rgba(255,255,255,.55)';
+    for(var i = 0; i < 30; i++){ x.fillRect(Math.random()*w, Math.random()*h, 2, 2); }
+    x.fillStyle = '#7A2E3C';
+    x.textAlign = 'center';
+    x.font = '700 13px Mulish, sans-serif';
+    x.fillText('S C R A T C H   T O   R E V E A L', w/2, h/2 - 6);
+    x.font = '18px serif';
+    x.fillText('✨', w/2, h/2 + 20);
+    var drawing = false, strokes = 0, revealed = false;
+    function scratch(e){
+      var r = c.getBoundingClientRect();
+      x.globalCompositeOperation = 'destination-out';
+      x.beginPath();
+      x.arc(e.clientX - r.left, e.clientY - r.top, 24, 0, 7);
+      x.fill();
+      if(++strokes % 10 === 0) check();
+    }
+    function check(){
+      if(revealed) return;
+      var d = x.getImageData(0, 0, c.width, c.height).data, clear = 0, total = 0;
+      for(var i = 3; i < d.length; i += 64){ total++; if(d[i] === 0) clear++; }
+      if(clear / total > 0.45){
+        revealed = true;
+        c.style.transition = 'opacity .9s';
+        c.style.opacity = 0;
+        c.style.pointerEvents = 'none';
+        launch(2);
+        var cd = document.getElementById('countdown-sec');
+        if(cd && !cd.classList.contains('shown')){
+          setTimeout(function(){ cd.classList.add('shown'); }, 700);
+        }
+      }
+    }
+    c.addEventListener('pointerdown', function(e){ drawing = true; c.setPointerCapture(e.pointerId); scratch(e); });
+    c.addEventListener('pointermove', function(e){ if(drawing) scratch(e); });
+    c.addEventListener('pointerup', function(){ drawing = false; });
+    c.addEventListener('pointercancel', function(){ drawing = false; });
+  }
+  if(document.readyState === 'complete'){ initScratch(); }
+  else { window.addEventListener('load', initScratch); }
+})();
+</script>
+</body>
+</html>

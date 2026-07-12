@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RSVP — Savi weds Rishabh · #RishSavi</title>
+<meta property="og:title" content="RSVP — Savi weds Rishabh">
+<meta property="og:description" content="24 & 25 November 2026 · Vrindavan — tell us you're coming! #RishSavi">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Mulish:wght@400;600;700&family=Tiro+Devanagari+Hindi&family=Great+Vibes&family=Cormorant+Garamond:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blush:#F9E4E8;
+    --rose:#DE93A7;
+    --rosegold:#C98A7E;
+    --maroon:#7A2E3C;
+    --maroon-deep:#5C1F2C;
+    --gold:#C9A24B;
+    --gold-bright:#EFD9A0;
+    --cream:#FBF7EF;
+    --ink:#4A3B33;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Mulish',sans-serif;color:var(--ink);line-height:1.6;
+    background:linear-gradient(180deg,#F4C8D3 0%,#F9E0DC 30%,var(--cream) 60%);
+    min-height:100vh;padding:2.2rem 1rem 3rem;
+  }
+  .card{
+    max-width:440px;margin:0 auto;background:#FFFEFB;border-radius:24px;
+    box-shadow:0 24px 60px rgba(122,46,60,.18), 0 0 0 1px rgba(201,162,75,.3);
+    overflow:hidden;position:relative;
+  }
+  .head{
+    text-align:center;padding:2.2rem 1.6rem 1.6rem;
+    background:linear-gradient(180deg,#FBEAEA,#FFFEFB);
+    border-bottom:1px dashed rgba(201,162,75,.45);
+  }
+  .head .om{font-family:'Tiro Devanagari Hindi',serif;color:var(--maroon);font-size:.95rem;letter-spacing:.08em}
+  .head h1{font-family:'Great Vibes',cursive;font-weight:400;font-size:2.6rem;color:var(--maroon);margin:.3rem 0 .1rem}
+  .head .sub{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--rosegold)}
+  .head .rule{width:110px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.9rem auto 0}
+
+  form{padding:1.8rem 1.6rem 2.2rem}
+  .field{margin-bottom:1.35rem;text-align:left}
+  label.lbl{display:block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--maroon);font-weight:700;margin-bottom:.45rem}
+  label.lbl small{display:block;letter-spacing:.02em;text-transform:none;font-weight:400;color:#8A7360;font-size:.78rem;margin-top:.15rem}
+  input[type=text],input[type=tel],textarea,select{
+    width:100%;padding:.75rem .9rem;border-radius:12px;border:1.5px solid #E4CFB4;
+    background:#FFFDF8;font-family:'Mulish',sans-serif;font-size:.95rem;color:var(--ink);
+    outline:none;transition:border .25s, box-shadow .25s;
+  }
+  input:focus,textarea:focus,select:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(222,147,167,.2)}
+  textarea{min-height:84px;resize:vertical}
+
+  .pills{display:flex;flex-wrap:wrap;gap:.5rem}
+  .pill{position:relative}
+  .pill input{position:absolute;opacity:0;inset:0;cursor:pointer}
+  .pill span{
+    display:inline-block;padding:.5rem 1rem;border-radius:999px;font-size:.85rem;
+    border:1.5px solid #E4CFB4;background:#FFFDF8;color:#6B5748;transition:all .25s;user-select:none;
+  }
+  .pill input:checked + span{
+    background:var(--maroon);border-color:var(--maroon);color:#FBEDD6;
+    box-shadow:0 6px 16px rgba(122,46,60,.28);
+  }
+  .pill input:focus-visible + span{outline:2px solid var(--rose);outline-offset:2px}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+
+  .submit-btn{
+    display:block;width:100%;margin-top:.4rem;padding:1rem;border:none;border-radius:999px;cursor:pointer;
+    background:linear-gradient(120deg,#8A3A49,var(--maroon) 45%,#8A3A49);
+    color:#FBEDD6;font-family:'Mulish',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;
+    box-shadow:0 10px 26px rgba(122,46,60,.3);transition:transform .3s, box-shadow .3s;
+  }
+  .submit-btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(122,46,60,.4)}
+  .submit-btn:disabled{opacity:.6;transform:none;cursor:wait}
+  .err{display:none;margin-top:1rem;text-align:center;color:#A61E2E;font-size:.85rem}
+
+  /* thank-you state */
+  #thanks{display:none;text-align:center;padding:3rem 1.8rem 3.4rem}
+  #thanks .lotus{width:92px;height:54px;margin:0 auto 1rem}
+  #thanks h2{font-family:'Great Vibes',cursive;font-weight:400;font-size:2.4rem;color:var(--maroon);margin-bottom:.5rem}
+  #thanks p{color:#6B5748;max-width:300px;margin:0 auto}
+  #thanks .tag{font-family:'Marcellus',serif;color:var(--gold);letter-spacing:.1em;margin-top:1.2rem}
+  .back{display:inline-block;margin-top:1.6rem;color:var(--maroon);font-weight:700;font-size:.85rem;text-decoration:none;border-bottom:1.5px solid var(--gold)}
+
+  .petal{position:fixed;top:-30px;z-index:5;pointer-events:none;animation:fall linear infinite}
+  @keyframes fall{0%{transform:translateY(-5vh) rotate(0)}100%{transform:translateY(108vh) rotate(320deg)}}
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none!important;transition:none!important}
+    .petal{display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="head">
+    <p class="om">॥ श्री गणेशाय नमः ॥</p>
+    <h1>Kindly RSVP</h1>
+    <p class="sub">Savi &amp; Rishabh · 24–25 Nov 2026 · Vrindavan</p>
+    <div class="rule"></div>
+  </div>
+
+  <form id="rsvp-form" novalidate>
+    <div class="field">
+      <label class="lbl" for="f-name">Full name (family head)<small>e.g., Rajesh Sharma</small></label>
+      <input type="text" id="f-name" required>
+    </div>
+
+    <div class="field">
+      <label class="lbl">Whose side are you from?</label>
+      <div class="pills">
+        <label class="pill"><input type="radio" name="side" value="Bride's side (Savi)" required><span>Bride's side (Savi)</span></label>
+        <label class="pill"><input type="radio" name="side" value="Groom's side (Rishabh)"><span>Groom's side (Rishabh)</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="lbl" for="f-relation">How are you related?<small>e.g., "Mama's family, Indore" — helps us recognize you!</small></label>
+      <input type="text" id="f-relation" required>
+    </div>
+
+    <div class="two">
+      <div class="field">
+        <label class="lbl" for="f-phone">Phone (WhatsApp)</label>
+        <input type="tel" id="f-phone" required>
+      </div>
+      <div class="field">
+        <label class="lbl" for="f-city">Travelling from</label>
+        <input type="text" id="f-city">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="lbl">Which functions will you attend?</label>
+      <div class="pills" id="functions">
+        <label class="pill"><input type="checkbox" value="Haldi — Tue 24 Nov, morning"><span>Haldi</span></label>
+        <label class="pill"><input type="checkbox" value="Sangeet — Tue 24 Nov, evening"><span>Sangeet</span></label>
+        <label class="pill"><input type="checkbox" value="Ghud Chadi (Baraat) — Wed 25 Nov, afternoon"><span>Ghud Chadi</span></label>
+        <label class="pill"><input type="checkbox" value="Phere — Wed 25 Nov, evening"><span>Phere</span></label>
+        <label class="pill"><input type="checkbox" value="Reception — Wed 25 Nov, night"><span>Reception</span></label>
+      </div>
+    </div>
+
+    <div class="two">
+      <div class="field">
+        <label class="lbl" for="f-adults">Adults</label>
+        <select id="f-adults" required>
+          <option value="">Select…</option>
+          <option>1</option><option>2</option><option>3</option>
+          <option>4</option><option>5</option><option>6</option>
+          <option>More than 6</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="lbl" for="f-kids">Children</label>
+        <select id="f-kids" required>
+          <option value="">Select…</option>
+          <option>0</option><option>1</option><option>2</option>
+          <option>3</option><option>4 or more</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="lbl">Food preference</label>
+      <div class="pills">
+        <label class="pill"><input type="radio" name="food" value="Vegetarian"><span>Vegetarian</span></label>
+        <label class="pill"><input type="radio" name="food" value="Jain"><span>Jain</span></label>
+        <label class="pill"><input type="radio" name="food" value="No preference"><span>No preference</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="lbl" for="f-msg">Anything we should know?<small>Arrival timings, needs, or a message for the couple</small></label>
+      <textarea id="f-msg"></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn" id="submit-btn">Send RSVP ✦</button>
+    <p class="err" id="err">Please fill your name, side, relation, phone, at least one function, and guest counts.</p>
+  </form>
+
+  <div id="thanks">
+    <svg class="lotus" viewBox="0 0 92 54" aria-hidden="true">
+      <path d="M46 8 C52 22 52 36 46 48 C40 36 40 22 46 8Z" fill="#DE93A7"/>
+      <path d="M30 16 C42 24 46 36 46 48 C34 44 28 30 30 16Z" fill="#E8ACBC"/>
+      <path d="M62 16 C50 24 46 36 46 48 C58 44 64 30 62 16Z" fill="#E8ACBC"/>
+      <path d="M15 30 C29 32 40 40 46 48 C32 50 19 43 15 30Z" fill="#F3CBD4"/>
+      <path d="M77 30 C63 32 52 40 46 48 C60 50 73 43 77 30Z" fill="#F3CBD4"/>
+    </svg>
+    <h2>Dhanyavaad!</h2>
+    <p>Your RSVP is recorded. We can't wait to celebrate with you in Vrindavan!</p>
+    <p class="tag">#RishSavi</p>
+    <a class="back" href="index.html">← Back to the invitation</a>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   WIRING — 2 things to paste after you run create-rsvp-form.gs:
+   1. FORM_ID: from your form's public link:
+      https://docs.google.com/forms/d/e/XXXXXXXX/viewform
+                                       ^^^^^^^^ this long ID
+   2. ENTRY IDs: the script's log prints them, e.g.
+      "Full name … → entry.1234567890" — paste each below.
+   ============================================================ */
+var CONFIG = {
+  FORM_ID: "PASTE_FORM_ID_HERE",
+  ENTRY: {
+    name:      "entry.PASTE",
+    side:      "entry.PASTE",
+    relation:  "entry.PASTE",
+    phone:     "entry.PASTE",
+    city:      "entry.PASTE",
+    functions: "entry.PASTE",
+    adults:    "entry.PASTE",
+    kids:      "entry.PASTE",
+    food:      "entry.PASTE",
+    message:   "entry.PASTE"
+  }
+};
+
+(function(){
+  /* soft petals */
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var colors=[['#F3CBD4','#DE93A7'],['#EFA22F','#C9702A'],['#E8ACBC','#C98A7E']];
+    for(var i=0;i<10;i++){
+      var w=document.createElement('div');
+      w.className='petal';
+      var s=9+Math.random()*10, c=colors[i%colors.length];
+      w.innerHTML='<svg width="'+s+'" height="'+s+'" viewBox="0 0 20 20"><path d="M10 1 C16 6 16 12 10 19 C4 12 4 6 10 1Z" fill="'+c[0]+'" stroke="'+c[1]+'" stroke-width=".8"/></svg>';
+      w.style.left=Math.random()*100+'vw';
+      w.style.animationDuration=(9+Math.random()*8)+'s';
+      w.style.animationDelay=(Math.random()*8)+'s';
+      document.body.appendChild(w);
+    }
+  }
+
+  var form=document.getElementById('rsvp-form');
+  var err=document.getElementById('err');
+  var btn=document.getElementById('submit-btn');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    err.style.display='none';
+
+    var name=document.getElementById('f-name').value.trim();
+    var side=(form.querySelector('input[name=side]:checked')||{}).value||'';
+    var relation=document.getElementById('f-relation').value.trim();
+    var phone=document.getElementById('f-phone').value.trim();
+    var city=document.getElementById('f-city').value.trim();
+    var fns=[].slice.call(document.querySelectorAll('#functions input:checked')).map(function(c){return c.value;});
+    var adults=document.getElementById('f-adults').value;
+    var kids=document.getElementById('f-kids').value;
+    var food=(form.querySelector('input[name=food]:checked')||{}).value||'';
+    var msg=document.getElementById('f-msg').value.trim();
+
+    if(!name||!side||!relation||!phone||!fns.length||!adults||!kids){
+      err.style.display='block';
+      return;
+    }
+
+    var body=new URLSearchParams();
+    body.append(CONFIG.ENTRY.name, name);
+    body.append(CONFIG.ENTRY.side, side);
+    body.append(CONFIG.ENTRY.relation, relation);
+    body.append(CONFIG.ENTRY.phone, phone);
+    if(city) body.append(CONFIG.ENTRY.city, city);
+    fns.forEach(function(v){ body.append(CONFIG.ENTRY.functions, v); });
+    body.append(CONFIG.ENTRY.adults, adults);
+    body.append(CONFIG.ENTRY.kids, kids);
+    if(food) body.append(CONFIG.ENTRY.food, food);
+    if(msg) body.append(CONFIG.ENTRY.message, msg);
+
+    btn.disabled=true; btn.textContent='Sending…';
+
+    fetch('https://docs.google.com/forms/d/e/'+CONFIG.FORM_ID+'/formResponse',{
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body:body.toString()
+    }).finally(function(){
+      /* no-cors means we can't read the response — Google accepts it silently */
+      form.style.display='none';
+      document.getElementById('thanks').style.display='block';
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+})();
+</script>
+</body>
+</html>
