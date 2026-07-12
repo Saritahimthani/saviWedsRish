@@ -107,8 +107,13 @@
 
   <form id="rsvp-form" novalidate>
     <div class="field">
-      <label class="lbl" for="f-name">Full name (family head)<small>e.g., Rajesh Sharma</small></label>
+      <label class="lbl" for="f-name">Full name<small>e.g., Rajesh Sharma</small></label>
       <input type="text" id="f-name" required>
+    </div>
+
+    <div class="field">
+      <label class="lbl" for="f-members">Other member names (optional)<small>Everyone joining you — e.g., "Sunita, Aryan, Diya"</small></label>
+      <input type="text" id="f-members">
     </div>
 
     <div class="field">
@@ -167,15 +172,6 @@
     </div>
 
     <div class="field">
-      <label class="lbl">Food preference</label>
-      <div class="pills">
-        <label class="pill"><input type="radio" name="food" value="Vegetarian"><span>Vegetarian</span></label>
-        <label class="pill"><input type="radio" name="food" value="Jain"><span>Jain</span></label>
-        <label class="pill"><input type="radio" name="food" value="No preference"><span>No preference</span></label>
-      </div>
-    </div>
-
-    <div class="field">
       <label class="lbl" for="f-msg">Anything we should know?<small>Arrival timings, needs, or a message for the couple</small></label>
       <textarea id="f-msg"></textarea>
     </div>
@@ -215,11 +211,11 @@ var CONFIG = {
     side:      "entry.PASTE",
     relation:  "entry.PASTE",
     phone:     "entry.PASTE",
+    members:   "entry.PASTE",
     city:      "entry.PASTE",
     functions: "entry.PASTE",
     adults:    "entry.PASTE",
     kids:      "entry.PASTE",
-    food:      "entry.PASTE",
     message:   "entry.PASTE"
   }
 };
@@ -252,11 +248,11 @@ var CONFIG = {
     var side=(form.querySelector('input[name=side]:checked')||{}).value||'';
     var relation=document.getElementById('f-relation').value.trim();
     var phone=document.getElementById('f-phone').value.trim();
+    var members=document.getElementById('f-members').value.trim();
     var city=document.getElementById('f-city').value.trim();
     var fns=[].slice.call(document.querySelectorAll('#functions input:checked')).map(function(c){return c.value;});
     var adults=document.getElementById('f-adults').value;
     var kids=document.getElementById('f-kids').value;
-    var food=(form.querySelector('input[name=food]:checked')||{}).value||'';
     var msg=document.getElementById('f-msg').value.trim();
 
     if(!name||!side||!relation||!phone||!fns.length||!adults||!kids){
@@ -267,13 +263,13 @@ var CONFIG = {
     var body=new URLSearchParams();
     body.append(CONFIG.ENTRY.name, name);
     body.append(CONFIG.ENTRY.side, side);
+    if(members) body.append(CONFIG.ENTRY.members, members);
     body.append(CONFIG.ENTRY.relation, relation);
     body.append(CONFIG.ENTRY.phone, phone);
     if(city) body.append(CONFIG.ENTRY.city, city);
     fns.forEach(function(v){ body.append(CONFIG.ENTRY.functions, v); });
     body.append(CONFIG.ENTRY.adults, adults);
     body.append(CONFIG.ENTRY.kids, kids);
-    if(food) body.append(CONFIG.ENTRY.food, food);
     if(msg) body.append(CONFIG.ENTRY.message, msg);
 
     btn.disabled=true; btn.textContent='Sending…';
