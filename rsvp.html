@@ -20,6 +20,7 @@
     --gold-bright:#EFD9A0;
     --cream:#FBF7EF;
     --ink:#4A3B33;
+    --error:#C0392B;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{
@@ -69,6 +70,31 @@
 
   .two{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
 
+  /* ===== per-field error styling ===== */
+  .field.invalid input[type=text],
+  .field.invalid input[type=tel],
+  .field.invalid textarea,
+  .field.invalid select{
+    border-color:var(--error);
+    background:#FDF3F1;
+    box-shadow:0 0 0 3px rgba(192,57,43,.14);
+  }
+  .field.invalid .pills .pill span{border-color:var(--error)}
+  .field-error{
+    display:none;align-items:center;gap:.35rem;
+    color:var(--error);font-size:.78rem;font-weight:600;
+    margin-top:.5rem;
+  }
+  .field.invalid .field-error{display:flex}
+  .field-error .mark{
+    flex:0 0 auto;width:16px;height:16px;border-radius:50%;
+    background:var(--error);color:#fff;font-size:.7rem;font-weight:700;
+    display:inline-flex;align-items:center;justify-content:center;line-height:1;
+  }
+  .field.invalid label.lbl{color:var(--error)}
+  @keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-5px)}40%,80%{transform:translateX(5px)}}
+  .field.shake{animation:shake .4s}
+
   .submit-btn{
     display:block;width:100%;margin-top:.4rem;padding:1rem;border:none;border-radius:999px;cursor:pointer;
     background:linear-gradient(120deg,#8A3A49,var(--maroon) 45%,#8A3A49);
@@ -77,7 +103,10 @@
   }
   .submit-btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(122,46,60,.4)}
   .submit-btn:disabled{opacity:.6;transform:none;cursor:wait}
-  .err{display:none;margin-top:1rem;text-align:center;color:#A61E2E;font-size:.85rem}
+  .err{
+    display:none;margin-top:1rem;text-align:center;color:var(--error);font-size:.85rem;font-weight:600;
+    background:#FDF3F1;border:1px solid rgba(192,57,43,.3);border-radius:12px;padding:.7rem .9rem;
+  }
 
   /* thank-you state */
   #thanks{display:none;text-align:center;padding:3rem 1.8rem 3.4rem}
@@ -108,41 +137,45 @@
   </div>
 
   <form id="rsvp-form" novalidate>
-    <div class="field">
+    <div class="field" data-field="name">
       <label class="lbl" for="f-name">Full name<small>e.g., Rajesh Sharma</small></label>
       <input type="text" id="f-name" required>
+      <p class="field-error"><span class="mark">!</span>Please enter your full name</p>
     </div>
 
-    <div class="field">
+    <div class="field" data-field="members">
       <label class="lbl" for="f-members">Other member names (optional)<small>Everyone joining you — e.g., "Sunita, Aryan, Diya"</small></label>
       <input type="text" id="f-members">
     </div>
 
-    <div class="field">
+    <div class="field" data-field="side">
       <label class="lbl">Whose side are you from?</label>
       <div class="pills">
         <label class="pill"><input type="radio" name="side" value="Bride's side (Savi)" required><span>Bride's side (Savi)</span></label>
         <label class="pill"><input type="radio" name="side" value="Groom's side (Rishabh)"><span>Groom's side (Rishabh)</span></label>
       </div>
+      <p class="field-error"><span class="mark">!</span>Please choose a side</p>
     </div>
 
-    <div class="field">
+    <div class="field" data-field="relation">
       <label class="lbl" for="f-relation">How are you related?<small>e.g., "Mama's family, Indore" — helps us recognize you!</small></label>
       <input type="text" id="f-relation" required>
+      <p class="field-error"><span class="mark">!</span>Please tell us how you're related</p>
     </div>
 
     <div class="two">
-      <div class="field">
+      <div class="field" data-field="phone">
         <label class="lbl" for="f-phone">Phone No.</label>
         <input type="tel" id="f-phone" required>
+        <p class="field-error"><span class="mark">!</span>Please enter your phone number</p>
       </div>
-      <div class="field">
+      <div class="field" data-field="city">
         <label class="lbl" for="f-city">Travelling from</label>
         <input type="text" id="f-city">
       </div>
     </div>
 
-    <div class="field">
+    <div class="field" data-field="functions">
       <label class="lbl">Which functions will you attend?</label>
       <div class="pills" id="functions">
         <label class="pill"><input type="checkbox" value="Haldi — Tue 24 Nov, morning"><span>Haldi</span></label>
@@ -150,12 +183,13 @@
         <label class="pill"><input type="checkbox" value="Ghud Chadi (Baraat) — Wed 25 Nov, afternoon"><span>Baraat</span></label>
         <label class="pill"><input type="checkbox" value="Phere — Wed 25 Nov, evening"><span>Phere</span></label>
         <label class="pill"><input type="checkbox" value="Reception — Wed 25 Nov, night"><span>Reception</span></label>
-        <label class="pill"><input type="checkbox" value="Reception — Wed 25 Nov, night"><span>Sufi Night (Bhopal)</span></label>
+        <label class="pill"><input type="checkbox" value="Sufi Night — Sat 28 Nov, Bhopal"><span>Sufi Night (Bhopal)</span></label>
       </div>
+      <p class="field-error"><span class="mark">!</span>Please select at least one function</p>
     </div>
 
     <div class="two">
-      <div class="field">
+      <div class="field" data-field="adults">
         <label class="lbl" for="f-adults">Adults</label>
         <select id="f-adults" required>
           <option value="">Select…</option>
@@ -163,24 +197,26 @@
           <option>4</option><option>5</option><option>6</option>
           <option>More than 6</option>
         </select>
+        <p class="field-error"><span class="mark">!</span>Select adults</p>
       </div>
-      <div class="field">
+      <div class="field" data-field="kids">
         <label class="lbl" for="f-kids">Children</label>
         <select id="f-kids" required>
           <option value="">Select…</option>
           <option selected>0</option><option>1</option><option>2</option>
           <option>3</option><option>4 or more</option>
         </select>
+        <p class="field-error"><span class="mark">!</span>Select children</p>
       </div>
     </div>
 
-    <div class="field">
+    <div class="field" data-field="msg">
       <label class="lbl" for="f-msg">Anything we should know?<small>Arrival timings, needs, or a message for the couple</small></label>
       <textarea id="f-msg"></textarea>
     </div>
 
     <button type="submit" class="submit-btn" id="submit-btn">Send RSVP ✦</button>
-    <p class="err" id="err">Please fill your name, side, relation, phone, at least one function, and guest counts.</p>
+    <p class="err" id="err">Please fix the highlighted fields above.</p>
   </form>
 
   <div id="thanks">
@@ -199,14 +235,6 @@
 </div>
 
 <script>
-/* ============================================================
-   WIRING — 2 things to paste after you run create-rsvp-form.gs:
-   1. FORM_ID: from your form's public link:
-      https://docs.google.com/forms/d/e/XXXXXXXX/viewform
-                                       ^^^^^^^^ this long ID
-   2. ENTRY IDs: the script's log prints them, e.g.
-      "Full name … → entry.1234567890" — paste each below.
-   ============================================================ */
 var CONFIG = {
   FORM_ID: "1FAIpQLSfn-c9luQIHlUHk3Y_PsP5tDd09Ab-ATSfnc78XoW2lNvcYtg",
   ENTRY: {
@@ -243,6 +271,33 @@ var CONFIG = {
   var err=document.getElementById('err');
   var btn=document.getElementById('submit-btn');
 
+  function fieldEl(key){ return form.querySelector('.field[data-field="'+key+'"]'); }
+
+  function clearError(key){
+    var f=fieldEl(key);
+    if(f) f.classList.remove('invalid');
+  }
+
+  function markError(key){
+    var f=fieldEl(key);
+    if(!f) return;
+    f.classList.add('invalid');
+    /* re-trigger shake */
+    f.classList.remove('shake');
+    void f.offsetWidth;
+    f.classList.add('shake');
+  }
+
+  /* live-clear an error as soon as the user fixes that field */
+  form.addEventListener('input', function(e){
+    var f=e.target.closest('.field');
+    if(f && f.classList.contains('invalid')) f.classList.remove('invalid');
+  });
+  form.addEventListener('change', function(e){
+    var f=e.target.closest('.field');
+    if(f && f.classList.contains('invalid')) f.classList.remove('invalid');
+  });
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
     err.style.display='none';
@@ -258,8 +313,27 @@ var CONFIG = {
     var kids=document.getElementById('f-kids').value;
     var msg=document.getElementById('f-msg').value.trim();
 
-    if(!name||!side||!relation||!phone||!fns.length||!adults||!kids){
+    /* validate each field individually */
+    var missing=[];
+    var checks=[
+      ['name', !name],
+      ['side', !side],
+      ['relation', !relation],
+      ['phone', !phone],
+      ['functions', !fns.length],
+      ['adults', !adults],
+      ['kids', !kids]
+    ];
+    checks.forEach(function(c){
+      if(c[1]){ markError(c[0]); missing.push(c[0]); }
+      else { clearError(c[0]); }
+    });
+
+    if(missing.length){
       err.style.display='block';
+      /* scroll to the first missing field so it's always visible */
+      var first=fieldEl(missing[0]);
+      if(first) first.scrollIntoView({behavior:'smooth', block:'center'});
       return;
     }
 
@@ -283,7 +357,6 @@ var CONFIG = {
       headers:{'Content-Type':'application/x-www-form-urlencoded'},
       body:body.toString()
     }).finally(function(){
-      /* no-cors means we can't read the response — Google accepts it silently */
       form.style.display='none';
       document.getElementById('thanks').style.display='block';
       window.scrollTo({top:0,behavior:'smooth'});
